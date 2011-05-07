@@ -1,0 +1,140 @@
+#xterm*termName:	xterm-256color
+URxvt.termName:		xterm
+
+*VT100.utf8:    	1
+*wideChars:		true
+*vt100Graphics:		true
+*utf8:			1
+
+*loginShell:		true
+*utmpInhibit:		false
+
+#xterm*locale:		true
+
+xterm*scrollBar:	false
+xterm*scrollTtyOutput:	false
+xterm*scrollTtyKeypress:true
+xterm*scrollKey:	true
+URxvt*scrollBar:	false
+
+xterm*eightBitInput:	true
+xterm*metaSendsEscape:	true
+xterm*altSendsEscape:	true
+
+xterm*charClass:	33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48 
+xterm*i18nSelections:	false
+xterm*brokenSelections:	false
+xterm*VT100*allowC1Printable: true
+
+#xterm*eightBitSelectTypes: true
+
+#xterm*font:		-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1
+xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+xterm*boldMode:		false
+
+xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-koi8-u
+xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-koi8-u
+xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+
+#xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+#xterm*boldFont:	-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+
+xterm*background: 	black
+xterm*foreground:	white
+URxvt*background: 	#0a0a0a
+URxvt*foreground:	white
+
+URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-15-*-*-*-*-*-iso10646-1\007
+#URxvt.font:		-xos4-terminus-medium-*-*-14-*-*-*-*-*-iso10646-1
+#URxvt.font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#URxvt*boldMode:		false
+#URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+
+*colorULMode:	true
+*underLine:	false
+*colorBDMode:	true
+URxvt.fading:	10
+
+##	Colors {{{
+*colorBD: #eaeaea
+*colorUL: #c8e7a8
+*colorRV: #999999
+*borderColor: #252525
+*cursorColor: #8c8c8c
+
+# black
+*color0: #000000
+*color8: #555753
+# red
+*color1: #cc0000
+*color9: #ef2929
+! Green
+*color2: #4e9a06
+*color10: #8ae234
+! Yellow
+*color3: #c4a000
+*color11: #fce94f
+! Blue
+*color4: #3465a4
+*color12: #729fcf
+! Magenta
+*color5: #75507b
+*color13: #ad7fa8
+! Cyan
+*color6: #06989a
+*color14: #34e2e2
+! White
+*color7: #d3d7cf
+*color15: #eeeeec
+# }}}
+
+Xft.dpi:		96
+Xft.antialias:		true
+Xft.rgba:		vrgb
+Xft.autohint:		false
+Xft.hinting:		true
+Xft.hintstyle:		hintmedium
+
+xpdf*fontList: 		-xos4-terminus-medium-r-normal--12-120-72-72-c-60-koi8-u
+xpdf*Foreground: 	#EEEEEC
+xpdf*Background: 	#000000
+xpdf*enableFreetype:    yes
+xpdf*antialias:         yes
+xpdf*urlCommand:        /usr/local/bin/firefox %s
+xpdf*initialZoom: 	width
+xpdf*toolTipEnable:	false
+
+## xlock
+XLock.mode:		blank
+XLock.font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+XLock.planfont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+XLock.messagefont:	-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+XLock.username:		login:
+XLock.password:		password:
+XLock.info:		session locked
+XLock.description:	off
+XLock.icongeometry:	32x32
+
+## Gnuplot
+gnuplot*background:	white
+gnuplot*textColor:	black
+gnuplot*borderColor:	black
+gnuplot*axisColor:	black
+gnuplot*line1Color:	red
+gnuplot*line2Color:	green
+gnuplot*line3Color:	blue
+gnuplot*line4Color:	magenta
+gnuplot*line5Color:	cyan
+gnuplot*line6Color:	sienna
+gnuplot*line7Color:	orange
+gnuplot*line8Color:	coral
+
+# vncviewer
+vncviewer*qualityLevel:		1
+vncviewer*compressLevel:	9
+vncviewer*useBGR233:		true
+
+# vim: foldmethod=marker

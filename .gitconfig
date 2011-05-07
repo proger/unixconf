@@ -1,0 +1,32 @@
+[user]
+#	email = proger@codeneedle.com
+#	email = proger@hackndev.com
+	email = proger@uaoug.org.ua
+	name = Vladimir Kirillov
+
+[url "gitosis@git.hackndev.com:"]
+	insteadOf = "hnd:"
+
+[url "eva.atmnis.com:"]
+	insteadOf = "eva:"
+
+[alias]
+	st = status
+	ci = commit -v
+	br = branch
+	co = checkout
+	cl = clone
+	di = diff
+	lg = log -p
+	l  = log -u --name-status --stat --summary --color
+	lo = log --format=oneline
+	head = log -1 HEAD
+	up = pull --rebase
+
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /home/proger/.cvsignore

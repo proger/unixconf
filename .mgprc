@@ -1,0 +1,11 @@
+# setting up font directories.
+# "vfcap" is commented out because it will be guessed by "configure"
+# in most cases.
+#vfcap "/usr/local/libdata/vflib/vfontcap"
+tfdir "/home/proger/.fonts"
+
+# last resort font for TrueType renderer (FreeType).
+# this must be specified in full pathname so that it can be used even if
+# "tfdir" is changed in presentation file.
+#tfont0 "/usr/local/share/fonts/ttf/arial.ttf"
+tfont0 "/home/proger/.fonts/UbuntuRegular.ttf"
