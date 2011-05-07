@@ -39,11 +39,18 @@ DIST=`dirname $0`
 ABSDIST=`(cd $DIST; pwd)`
 
 persist() {
-	(cd $HOME; pax -rw -v ${2:-$CONF_ALL} $ABSDIST/)
+	(cd $HOME; pax -rw -v ${1:-$CONF_ALL} $ABSDIST/)
 }
 
 deploy() {
-	(cd $ABSDIST; pax -rw -v ${2:-$CONF_ALL} $HOME/)
+	(cd $ABSDIST; pax -rw -v ${1:-$CONF_ALL} $HOME/)
 }
 
-eval $1
+print() {
+	group=${1:-ALL}
+	var=\$CONF_$group
+	eval echo $var
+}
+
+cmd=$1; shift
+$cmd $*
