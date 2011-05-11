@@ -10,4 +10,4 @@ case "$-" in *i*)
 esac
 
 export PS1="# "
-export HISTFILE=.history
+export HISTFILE=$HOME/.history
