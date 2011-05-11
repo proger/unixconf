@@ -61,6 +61,7 @@ _alias	ilua		env \
 			LUA_PATH="./\?.lua;$LUAPKG/\?/\?.lua" \
 			~/dev/lua/ilua/ilua.lua -Lreadline
 _alias	gdb		gdb -q
+_alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
 
 _alias	pkg_add		sudo pkg_add -v
 _alias	pkg_delete	sudo pkg_delete -v
@@ -68,12 +69,14 @@ _alias	top		top -ct
 _alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
 _alias	mount_nfs	sudo mount_nfs -iTs					# tcp soft intr
 _alias	vnconfig	sudo vnconfig
+_alias	ifconfig	sudo ifconfig
 
 _alias	halt		sudo halt -p
 _alias	shosts		vim ~/.ssh/known_hosts
 _alias	hosts		sudo vim /etc/hosts
 
-_alias	gentags		exctags -R --c-kinds=+p --fields=+iaS --extra=+q
+#_alias	gentags		exctags -R --c-kinds=+p --fields=+iaS --extra=+q
+_alias	gentags		exctags -R --format=2
 
 _alias	tcpdumpv	sudo tcpdump -vv -X -w savedump -s 2048
 _alias	ku		cu -l /dev/cuaU0 -s 19200
@@ -368,7 +371,7 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 #zstyle ':completion:*' group-name ''
 zstyle ':completion:*' file-sort name
 # use menus
-zstyle ':completion:*' menu select=long-list select=0
+#zstyle ':completion:*' menu select=long-list select=0
 
 # kill
 zstyle ':completion:*:processes' menu yes select
@@ -379,9 +382,9 @@ zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
 
 zstyle ':completion:*:*:vi*:*' verbose yes
-zstyle ':completion:*:*:vi*:*' menu select=long-list select=0
+#zstyle ':completion:*:*:vi*:*' menu select=long-list select=0
 zstyle ':completion:*:*:vi*:*' file-sort modification
-zstyle ':completion:*:*:vi*:*' ignored-patterns '(*.(o|class|pyc)|CVS)'
+zstyle ':completion:*:*:vi*:*' ignored-patterns '(*.(o|class|pyc)|CVS|a.out)'
 
 # rm protection
 #zstyle ':completion:*:*:rm*:*' ignored-patterns '*' # XXX: ?!?
@@ -400,7 +403,7 @@ compctl -/g "*.[cCoa]" -x 's[-I]' -/ - \
 	's[-l]' -s '${(s.:.)^LD_LIBRARY_PATH}/lib*.a(:t:r:s/lib//)' -- cc gcc g++
 
 # colors!
-export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
+#export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
 export	LS_COLORS="$ZLS_COLORS"
 zstyle	':completion:*' list-colors ${(s.:.)ZLS_COLORS}
 zstyle	':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=01;36=31"
