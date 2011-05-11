@@ -31,6 +31,7 @@ CONF_DEV="
 .cpan/CPAN/MyConfig.pm
 .ipython/ipythonrc
 .mgprc
+.ocamlfind.conf
 "
 
 CONF_ALL="$CONF_ESSENTIAL $CONF_X11 $CONF_DEV"
