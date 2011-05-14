@@ -1,6 +1,7 @@
 set toolbars=tabs
 set toolbars+=noaddons,nomenu,nonavigation,nobookmarks
 set noscrollbars
+set hlsearch
 
 map <Right> gt
 map <Left>  gT
@@ -14,6 +15,7 @@ map <C-H>     :tabmove! -1<CR>" colors
 
 com ns		emenu View.Page Style.No Style
 com adblock	emenu View.Adblock Plus: Blockable Items
+com scrap	emenu ScrapBook.Scrapbook
 
 com O		open
 
@@ -119,3 +121,5 @@ hi HintImage opacity: .5;
 "]]></css>.toString();
 "styles.addSheet(false, "indigo-customize-toolbar", "chrome://*", css, false);
 "EOM
+
+" vim: ft=vim
