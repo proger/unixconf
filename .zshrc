@@ -55,7 +55,6 @@ _alias	rsync		rsync -hv --progress
 
 _alias	py		ipython
 _alias	hs		ghci
-_alias	pl		~/local/perl/bin/re.pl
 _alias	ilua		env \
 			LUA_CPATH="$HOME/dev/lua/ilua/\?.so;$LUAPKG/\?/\?.so" \
 			LUA_PATH="./\?.lua;$LUAPKG/\?/\?.lua" \
@@ -66,10 +65,14 @@ _alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
 _alias	pkg_add		sudo pkg_add -v
 _alias	pkg_delete	sudo pkg_delete -v
 _alias	top		top -ct
-_alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
 _alias	mount_nfs	sudo mount_nfs -iTs					# tcp soft intr
 _alias	vnconfig	sudo vnconfig
 _alias	ifconfig	sudo ifconfig
+
+_alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
+_alias	psa		ps -Axs -o 'pid,user,ni,%cpu,vsz,rss,wchan,tt,time,command'
+_alias	sysps		psa -p 0
+_alias	pss		ps -Ax -o 'pid,wchan,stat,tt,time,command'
 
 _alias	halt		sudo halt -p
 _alias	shosts		vim ~/.ssh/known_hosts
@@ -83,6 +86,7 @@ _alias	ku		cu -l /dev/cuaU0 -s 19200
 _alias	vnc		vncviewer -compresslevel 9 -quality 1 -bgr233
 _alias	xd		'export DISPLAY=:0.0; xset dpms force on'
 _alias	koi		luit -encoding 'KOI8-R' --
+_alias	dict		sdcv --utf8-output
 
 _alias	qemul		qemu -nographic -serial telnet::4444,server
 _alias	qemul64		qemu-system-x86_64 -nographic -serial telnet::4444,server
@@ -97,14 +101,6 @@ mkcd() {
 	mkdir $1
 	echo $1
 	cd $1
-}
-
-pp() {
-	if [ $# -ge 1 ]; then
-		ps -Asxw -o 'pid,wchan,stat,tt,time,lname,command' | g $*
-	else
-		ps -Axs -o 'pid,user,ni,%cpu,vsz,rss,wchan,tt,time,lname,command'
-	fi
 }
 
 svndiff() {
@@ -127,12 +123,12 @@ cs() {
 # $1 - command
 # $2 - file
 sedi() {
-        local tmpf=`mktemp /tmp/sedi_tmp.XXXXXX`
+	local tmpf=`mktemp /tmp/sedi_tmp.XXXXXX`
 
-        sed $1 $2 > $tmpf
+	sed $1 $2 > $tmpf
 
-        cat $tmpf > $2
-        rm -f $tmpf
+	cat $tmpf > $2
+	rm -f $tmpf
 }
 
 authcopy() {
@@ -171,6 +167,10 @@ pk() {
 	ps axwws | g ${argv[-1]}
 	read
 	sudo pkill $*
+}
+
+bat() {
+	(sysctl hw.sensors.acpibat0 || envstat -d acpibat0) 2>/dev/null
 }
 
 ex() {
@@ -214,13 +214,13 @@ isoburn() {
 
 vol() {
 	if [ $# -eq 1 -a "$1" = "-" ]; then
-                mixerctl -va
-        elif [ $# -eq 1 ]; then
-                mixerctl -w outputs.master=$1 || \
+		mixerctl -va
+	elif [ $# -eq 1 ]; then
+		mixerctl -w outputs.master=$1 || \
 			mixerctl -w outputs.lineout=$1
-        else
-                mixerctl outputs.master
-        fi
+	else
+		mixerctl outputs.master
+	fi
 }
 
 ncmpc() {
@@ -228,34 +228,36 @@ ncmpc() {
 	/usr/pkg/bin/ncmpc $*
 }
 
-dict() {
-	sdcv --utf8-output $*
-}
-
 im() {
-        IM_SESSION="im"
-        IM_COMMAND="irssi"
-        export TMARK="im"
+	IM_SESSION="im"
+	IM_COMMAND="irssi"
+	export TMARK="im"
 
-        local tmux="`tmux ls | egrep "^$IM_SESSION"`"
+	local tmux="`tmux ls | egrep "^$IM_SESSION"`"
 
-        if [ X"$tmux" = X"" ]; then
-                tmux new -s $IM_SESSION $IM_COMMAND
-        else
-                tmux at -t $IM_SESSION
-        fi
+	if [ X"$tmux" = X"" ]; then
+		tmux new -s $IM_SESSION $IM_COMMAND
+	else
+		tmux at -t $IM_SESSION
+	fi
 }
 
 mongod() {
-        local tmux="`tmux ls | egrep '^mongo'`"
+	local tmux="`tmux ls | egrep '^mongo'`"
+	local dbpath="$HOME/local/db"
 
-        [ X"$tmux" = X"" ] && {
-                tmux new -s mongo \
-			"mongod --master \
-			--dbpath $HOME/local/db \
-			--rest ${argv[2, -1]}"
+	[ X"$tmux" = X"" ] && {
+		[ -f $dbpath/mongod.lock ] && {
+			ps -A | grep mongod
+			echo 'about to remove lock and repair'
+			read
+			rm -f $dbpath/mongod.lock
+			command mongod --dbpath $dbpath --repair
+		}
+				tmux new -s mongo "mongod --master \
+			--dbpath $dbpath --rest ${argv[2, -1]}"
 	} || {
-                tmux at -t mongo
+		tmux at -t mongo
 	}
 }
 
@@ -272,6 +274,7 @@ zz() {
 	echo $*
 	$* >& /dev/null &!
 }
+
 
 # suffix aliases
 alias -s {jpg,jpeg,png,gif,tiff,bmp}='feh'
@@ -403,8 +406,8 @@ compctl -/g "*.[cCoa]" -x 's[-I]' -/ - \
 	's[-l]' -s '${(s.:.)^LD_LIBRARY_PATH}/lib*.a(:t:r:s/lib//)' -- cc gcc g++
 
 # colors!
-#export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
-export	LS_COLORS="$ZLS_COLORS"
+export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
+export	LS_COLORS=$ZLS_COLORS
 zstyle	':completion:*' list-colors ${(s.:.)ZLS_COLORS}
 zstyle	':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=01;36=31"
 
