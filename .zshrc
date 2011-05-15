@@ -434,7 +434,7 @@ local NEWLINE="%{"$'\e[80D'"%}"
 
 export	PS1="${white}%m ${blue}%3~ ${red}%? ${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
-unset	RPS1
+export	RPS1="%(1j.${green}j%j${NOCOLOR}.)"
 
 export	__LASTDATE=""	# TODO
 
