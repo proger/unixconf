@@ -2,6 +2,7 @@
 
 CONF_ESSENTIAL="
 .cvsignore
+.cvsrc
 .gitconfig
 .muttrc
 .plan
@@ -18,6 +19,8 @@ CONF_X11="
 .fehrc
 .fonts.conf
 .gtkrc-2.0
+local/bin/oimap
+local/bin/xkbd
 .mplayer/config
 .rtorrent.rc
 .terminfo

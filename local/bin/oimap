@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tmux has -t offlineimap 2>/dev/null && tmux attach -t offlineimap \
+	|| tmux new -d -s offlineimap 'while true; do offlineimap; done'

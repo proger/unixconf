@@ -3,8 +3,6 @@ fontname "fixed:pixelsize=15:bold"
 
 #command term "xterm"
 command term "urxvt"
-#command term "/home/proger/local/bin/rxvt"
-#command term "/usr/local/bin/rxvt"
 
 #bind	MS-Return	terminal
 bind	C-Up		terminal

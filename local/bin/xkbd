@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ $# = 0 ]; then
+	echo "setting default keymap"
+	setxkbmap -layout "us,ru(winkeys)" -option grp:toggle
+	xmodmap ~/.Xmodmap
+elif [ $1 = "ua" ]; then
+	echo "setting ukrainian keymap"
+	setxkbmap -layout "us,ru(winkeys),ua(winkeys)" -option grp:toggle
+	xmodmap ~/.Xmodmap
+fi
+
