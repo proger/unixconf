@@ -28,3 +28,4 @@ emulators/suse113_base
 devel/exctags
 fonts/terminus-font
 mail/mutt-devel
+databases/sqlite3

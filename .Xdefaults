@@ -39,10 +39,12 @@ xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 #xterm*boldFont:	-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 
-xterm*background: 	black
-xterm*foreground:	white
+#xterm*background: 	black
+#xterm*foreground:	white
 URxvt*background: 	#0a0a0a
 URxvt*foreground:	white
+#URxvt*background:	white
+#URxvt*foreground:	black
 
 URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007

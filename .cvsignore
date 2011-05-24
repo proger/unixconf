@@ -1,2 +1,5 @@
 obj
 tags
+*.o
+*.pyc
+*.ppu

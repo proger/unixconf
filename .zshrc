@@ -73,6 +73,7 @@ _alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
 _alias	psa		ps -Axs -o 'pid,user,ni,%cpu,vsz,rss,wchan,tt,time,command'
 _alias	sysps		psa -p 0
 _alias	pss		ps -Ax -o 'pid,wchan,stat,tt,time,command'
+_alias	psl		ps -Ax -o 'pid,wchan,stat,tt,time,lname,command'
 
 _alias	halt		sudo halt -p
 _alias	shosts		vim ~/.ssh/known_hosts
@@ -87,6 +88,7 @@ _alias	vnc		vncviewer -compresslevel 9 -quality 1 -bgr233
 _alias	xd		'export DISPLAY=:0.0; xset dpms force on'
 _alias	koi		luit -encoding 'KOI8-R' --
 _alias	dict		sdcv --utf8-output
+_alias	fpc		~/local/fpc64/bin/fpc
 
 _alias	qemul		qemu -nographic -serial telnet::4444,server
 _alias	qemul64		qemu-system-x86_64 -nographic -serial telnet::4444,server
@@ -432,9 +434,10 @@ local NOCOLOR="%{"$'\e[0m'"%}"
 local NEWLINE="%{"$'\e[80D'"%}"
 # }}}
 
-export	PS1="${white}%m ${blue}%3~ ${red}%? ${GRAY}%#$NOCOLOR "
+#export	PS1="${white}%m ${blue}%3~ ${red}%? ${GRAY}%#$NOCOLOR "
+export	PS1="${gray}%m${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
-export	RPS1="%(1j.${green}j%j${NOCOLOR}.)"
+export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~ ${red}%?$NOCOLOR"
 
 export	__LASTDATE=""	# TODO
 
