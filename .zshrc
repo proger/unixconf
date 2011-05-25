@@ -256,7 +256,7 @@ mongod() {
 			rm -f $dbpath/mongod.lock
 			command mongod --dbpath $dbpath --repair
 		}
-				tmux new -s mongo "mongod --master \
+		tmux new -s mongo "env LC_ALL=C mongod --master \
 			--dbpath $dbpath --rest ${argv[2, -1]}"
 	} || {
 		tmux at -t mongo
