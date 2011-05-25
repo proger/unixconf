@@ -4,6 +4,7 @@ CONF_ESSENTIAL="
 .cvsignore
 .cvsrc
 .gitconfig
+.mailcap
 .muttrc
 .plan
 .profile
