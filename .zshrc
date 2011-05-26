@@ -254,7 +254,7 @@ mongod() {
 			echo 'about to remove lock and repair'
 			read
 			rm -f $dbpath/mongod.lock
-			command mongod --dbpath $dbpath --repair
+			command env LC_ALL=C mongod --dbpath $dbpath --repair
 		}
 		tmux new -s mongo "env LC_ALL=C mongod --master \
 			--dbpath $dbpath --rest ${argv[2, -1]}"
@@ -460,5 +460,7 @@ case $TERM in
 		}
 	;;
 esac
+
+[ -f $HOME/.todo ] && < $HOME/.todo
 
 # vim: foldmethod=marker
