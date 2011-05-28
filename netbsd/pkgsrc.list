@@ -29,3 +29,6 @@ devel/exctags
 fonts/terminus-font
 mail/mutt-devel
 databases/sqlite3
+graphics/ImageMagick
+graphics/feh
+x11/xclip
