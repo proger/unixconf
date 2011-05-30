@@ -68,6 +68,7 @@ _alias	top		top -ct
 _alias	mount_nfs	sudo mount_nfs -iTs					# tcp soft intr
 _alias	vnconfig	sudo vnconfig
 _alias	ifconfig	sudo ifconfig
+_alias	cal		cal -d 1
 
 _alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
 _alias	psa		ps -Axs -o 'pid,user,ni,%cpu,vsz,rss,wchan,tt,time,command'
@@ -75,7 +76,6 @@ _alias	sysps		psa -p 0
 _alias	pss		ps -Ax -o 'pid,wchan,stat,tt,time,command'
 _alias	psl		ps -Ax -o 'pid,wchan,stat,tt,time,lname,command'
 
-_alias	halt		sudo halt -p
 _alias	shosts		vim ~/.ssh/known_hosts
 _alias	hosts		sudo vim /etc/hosts
 

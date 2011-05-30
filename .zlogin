@@ -16,7 +16,7 @@ export	PATH=$PATH:/usr/pkg/qt4/bin:/usr/games
 #export	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
 #export	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
 
-export	EDITOR=/usr/pkg/bin/vim
+export	EDITOR=$HOME/local/bin/vim
 export	PAGER=/usr/bin/less
 export	LESSCHARSET=utf-8
 

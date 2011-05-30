@@ -1,7 +1,5 @@
 [user]
-#	email = proger@codeneedle.com
-#	email = proger@hackndev.com
-	email = proger@uaoug.org.ua
+	email = proger@wilab.org.ua
 	name = Vladimir Kirillov
 
 [url "gitosis@git.hackndev.com:"]

@@ -13,7 +13,7 @@ alternates	proger@codeneedle.com
 alternates	darkproger@gmail.com
 alternates	vladimir@kirillov.im
 
-set	sendmail	= "msmtp -t"
+source ~/.muttrc.auth
 
 set	mbox		= "!"
 set	folder		= /home/proger/mail
@@ -22,7 +22,6 @@ set	postponed	= /home/proger/mail/wilab/[Gmail]/Drafts
 set	record		= /home/proger/mail/sent
 source ~/.muttrc.mailboxes
 
-#source ~/.pvt/gmail.muttrc
 #set	folder 		= "imaps://proger@wilab.org.ua@imap.gmail.com:993"
 #set	spoolfile	= "+INBOX"
 #set	postponed	= "+[Gmail]/Drafts"
