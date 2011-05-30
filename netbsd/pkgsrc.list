@@ -12,6 +12,7 @@ archivers/unzip
 archivers/zip
 lang/python27
 devel/py-readline
+devel/cvsutils
 audio/musicpd
 audio/mpc
 audio/ncmpc
