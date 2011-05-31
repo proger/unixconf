@@ -20,6 +20,7 @@ CONF_X11="
 .fehrc
 .fonts.conf
 .gtkrc-2.0
+local/bin/ceval
 local/bin/oimap
 local/bin/xkbd
 .mplayer/config
@@ -36,6 +37,10 @@ CONF_DEV="
 .ipython/ipythonrc
 .mgprc
 .ocamlfind.conf
+"
+
+CONF_NETBSD="
+../etc/mk.conf
 "
 
 CONF_ALL="$CONF_ESSENTIAL $CONF_X11 $CONF_DEV"

@@ -1,0 +1,34 @@
+#!/bin/ksh
+
+ctmp=`mktemp /tmp/ceval.XXXXXX`.c
+
+cat > $ctmp << EOF
+#include <sys/types.h>
+
+#include <stdlib.h>
+#include <stdio.h>
+
+#define _p printf
+EOF
+
+for arg in $*; do
+	echo "#include <$arg>" >> $ctmp
+done
+
+cat >> $ctmp << EOF
+int
+main(int argc, char **argv)
+{
+EOF
+
+cat >> $ctmp < /dev/stdin
+
+cat >> $ctmp << EOF
+	return 0;
+}
+EOF
+
+cc -o $ctmp.out $ctmp
+$ctmp.out
+echo
+rm -f $ctmp.out $ctmp
