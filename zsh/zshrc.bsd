@@ -1,0 +1,70 @@
+
+_alias	ls		gls --color=auto
+_alias	f		finger
+_alias	lock		lock -pn
+_alias	mmesg		tail -f /var/log/messages
+
+_alias	psmem		'ps -k vsize -O user,pid,%cpu,%mem,vsz,rss -a | \head -n $LINES'
+_alias	psa		ps -Axs -o 'pid,user,ni,%cpu,vsz,rss,wchan,tt,time,command'
+_alias	sysps		psa -p 0
+_alias	pss		ps -Ax -o 'pid,wchan,stat,tt,time,command'
+_alias	psl		ps -Ax -o 'pid,wchan,stat,tt,time,lname,command'
+
+_alias	ilua		env \
+			LUA_CPATH="$HOME/dev/lua/ilua/\?.so;$LUAPKG/\?/\?.so" \
+			LUA_PATH="./\?.lua;$LUAPKG/\?/\?.lua" \
+			~/dev/lua/ilua/ilua.lua -Lreadline
+
+_alias	pkg_add		sudo pkg_add -v
+_alias	pkg_delete	sudo pkg_delete -v
+_alias	top		top -ct
+_alias	mount_nfs	sudo mount_nfs -iTs					# tcp soft intr
+_alias	vnconfig	sudo vnconfig
+
+_alias	cal		cal -d 1
+
+_alias	ku		cu -l /dev/cuaU0 -s 19200
+
+_startx() {
+	pgrep startx && wsconsctl display.focus=4 \
+		|| (rm -f ~/.Xauthority*; \
+			/usr/X11R7/bin/startx >& ~/.startx.out &)
+	lock
+}
+
+umount() {
+	[ $1 = "." ] && {
+		opwd=$PWD
+		cd ..
+		sudo /sbin/umount $opwd
+	} || {
+		sudo /sbin/umount $*
+	}
+}
+
+pk() {
+	ps axwws | g ${argv[-1]}
+	read
+	sudo pkill $*
+}
+
+bat() {
+	(sysctl hw.sensors.acpibat0 || envstat -d acpibat0) 2>/dev/null
+}
+
+vol() {
+	if [ $# -eq 1 -a "$1" = "-" ]; then
+		mixerctl -va
+	elif [ $# -eq 1 ]; then
+		mixerctl -w outputs.master=$1 || \
+			mixerctl -w outputs.lineout=$1
+	else
+		mixerctl outputs.master
+	fi
+}
+
+ncmpc() {
+	pgrep mpd >/dev/null || mpd /shared/audio/mpdconf
+	/usr/pkg/bin/ncmpc $*
+}
+
