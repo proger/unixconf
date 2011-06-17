@@ -49,7 +49,7 @@ URxvt*foreground:	white
 URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
 URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
-URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-15-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso10646-1\007
 #URxvt.font:		-xos4-terminus-medium-*-*-14-*-*-*-*-*-iso10646-1
 #URxvt.font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 #URxvt*boldMode:		false
@@ -59,6 +59,10 @@ URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-15-*-*-*-*-*-iso1
 *underLine:	false
 *colorBDMode:	true
 URxvt.fading:	10
+
+URxvt*perl-ext-common:	default,matcher
+URxvt*matcher.button:	3
+URxvt*urlLauncher:	firefox
 
 ##	Colors {{{
 *colorBD: #eaeaea
