@@ -53,8 +53,7 @@ persist() {
 }
 
 deploy() {
-	#(cd $ABSDIST; pax -rw -v ${1:-$CONF_ALL} $HOME/)
-	(cd $ABSDIST; rsync -rvu ${1:-$CONF_ALL} $HOME/)
+	(cd $ABSDIST; pax -rw -v ${1:-$CONF_ALL} $HOME/)
 }
 
 print() {
