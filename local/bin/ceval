@@ -1,8 +1,9 @@
-#!/bin/ksh
+#!/bin/sh
 
 ctmp=`mktemp /tmp/ceval.XXXXXX`.c
 
 cat > $ctmp << EOF
+#define _LARGEFILE64_SOURCE
 #include <sys/types.h>
 
 #include <stdlib.h>
