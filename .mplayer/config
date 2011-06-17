@@ -1,2 +1,2 @@
 # Write your default config options here!
-#af volume=20.0:0
+ao=alsa
