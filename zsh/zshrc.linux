@@ -1,7 +1,12 @@
 _alias	ls		ls --color=auto
 _alias	mmesg		tail -f /var/log/messages.log
+
 _alias	pacman		sudo pacman
- 
+_alias	ip		sudo ip
+_alias	iw		sudo iw
+_alias	gmake		make
+_alias	rc.d		sudo rc.d
+
 umount() {
 	umount=/bin/umount
 	[ $1 = "." ] && {
@@ -12,5 +17,7 @@ umount() {
 		sudo $umount $*
 	}
 }
+
+export CVS_RSH=ssh
 
 # vim: ft=zsh

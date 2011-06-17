@@ -61,7 +61,7 @@ _alias	shosts		vim ~/.ssh/known_hosts
 _alias	hosts		sudo vim /etc/hosts
 
 #_alias	gentags		exctags -R --c-kinds=+p --fields=+iaS --extra=+q
-_alias	gentags		exctags -R --format=2
+_alias	gentags		ctags -R --format=2
 
 _alias	tcpdumpv	sudo tcpdump -vv -X -w savedump -s 2048
 _alias	vnc		vncviewer -compresslevel 9 -quality 1 -bgr233
@@ -215,7 +215,7 @@ alias -s {jpg,jpeg,png,gif,tiff,bmp}='feh'
 alias -s {mp3,wav,avi,mpeg,ogg,mpg}='mplayer'
 alias -s {pdf,ps}='mupdf'
 alias -s {odt,odp,ods,doc,xls,docx}='soffice'
-alias -s djvu='djview3'
+alias -s djvu='djview4'
 
 alias -s log='tail -f'
 
