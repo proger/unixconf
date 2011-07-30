@@ -105,4 +105,6 @@ im() {
 
 alias koim='luit -encoding "KOI8-R" -- tmux attach -t im'
 
+export HISTFILE=$HOME/.history
+
 # vim: ft=sh
