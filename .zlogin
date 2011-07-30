@@ -37,6 +37,8 @@ export	OCAMLFIND_CONF=$HOME/.ocamlfind.conf
 export	PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0
 export	PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0/x86_64-netbsd-thread-multi
 
+export	GEM_HOME=$HOME/local/ruby
+
 export HISTFILE=$HOME/.zshistory
 
 # for ksh

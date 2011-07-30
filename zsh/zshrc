@@ -20,11 +20,11 @@ _alias() {
 
 _alias	up		'source ~/.zlogin && source ~/.zshrc'
 
-_alias	ll		ls -lhF
-_alias	la		ls -lashF
-_alias	lt		ls -lut
+_alias	ll		ls -lhF --group-directories-first
+_alias	la		ll -as
+_alias	lt		ll -ut
 #_alias	lld		ls -lhF -cr
-_alias	lld		ls -lhF -tr
+_alias	lld		ll -tr
 _alias	lf		ls -f
 _alias	.		pwd
 _alias	..		cd ..
@@ -269,7 +269,7 @@ zle -N edit-command-line
 bindkey		"^N"	edit-command-line
 
 # history
-export	HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:..:halt"
+export	HISTIGNORE="&:ll:ls:[bf]g:exit:reset:cl:clear:cd:..:halt"
 export	HISTSIZE=25000
 export	SAVEHIST=25000
 export	HISTFILE=~/.zshistory
@@ -285,6 +285,7 @@ setopt	HIST_SAVE_NO_DUPS
 setopt	HIST_VERIFY
 setopt	HIST_FCNTL_LOCK
 #setopt	SHARE_HISTORY
+setopt	PROMPT_SUBST
 
 # completion
 zle -N incremental-complete-word
@@ -367,11 +368,21 @@ local NEWLINE="%{"$'\e[80D'"%}"
 # }}}
 
 #export	PS1="${white}%m ${blue}%3~ ${red}%? ${GRAY}%#$NOCOLOR "
-export	PS1="${gray}%m${GRAY}%#$NOCOLOR "
-export	PS2="%_> "
-export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~ ${red}%?$NOCOLOR"
+#export	PS1="${gray}%m${GRAY}%#$NOCOLOR "
 
-export	__LASTDATE=""	# TODO
+ps1_vcs() {
+	[ -f .svn/entries ] && {
+		ent=($(<.svn/entries))
+		echo -n ":$cyan${ent[3]}"
+	} || {
+		ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+		echo -n ":$cyan${ref#refs/heads/}"
+	}
+}
+
+export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
+export	PS2="%_> "
+export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 
 case $TERM in
 	xterm*|rxvt*)

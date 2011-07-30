@@ -1,8 +1,8 @@
 fontname "fixed:pixelsize=15:bold"
 #fontname "terminus:pixelsize=14:bold"
 
-#command term "xterm"
-command term "urxvt"
+command term "xterm"
+#command term "urxvt"
 
 #bind	MS-Return	terminal
 bind	C-Up		terminal

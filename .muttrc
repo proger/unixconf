@@ -13,23 +13,21 @@ alternates	proger@codeneedle.com
 alternates	darkproger@gmail.com
 alternates	vladimir@kirillov.im
 
-source ~/.muttrc.auth
-
 set	mbox		= "!"
 set	folder		= /home/proger/mail
 set	spoolfile	= /home/proger/mail/wilab/INBOX
 set	postponed	= /home/proger/mail/wilab/[Gmail]/Drafts
 set	record		= /home/proger/mail/sent
+source ~/.muttrc.auth
 source ~/.muttrc.mailboxes
 
-#set	folder 		= "imaps://proger@wilab.org.ua@imap.gmail.com:993"
 #set	spoolfile	= "+INBOX"
 #set	postponed	= "+[Gmail]/Drafts"
 #set	record		= "+[Gmail]/Sent Mail"
 #set	imap_check_subscribed
 #set	imap_keepalive	= 900
 #set	certificate_file= ~/.mutt/certificates
-#set	message_cachedir= ~/.mutt/bodycache
+set	message_cachedir= ~/.mutt/bodycache
 set	header_cache	= ~/.mutt/headercache
 
 set	timeout		= 10    # press artificially a key after 10 seconds

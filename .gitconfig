@@ -9,6 +9,7 @@
 	insteadOf = "eva:"
 
 [alias]
+	#st = status -sb
 	st = status
 	ci = commit -v
 	br = branch

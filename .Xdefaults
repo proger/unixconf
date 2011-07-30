@@ -32,8 +32,8 @@ xterm*VT100*allowC1Printable: true
 xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 xterm*boldMode:		false
 
-xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-koi8-u
-xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-koi8-u
+xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
+xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1
 xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
@@ -41,8 +41,10 @@ xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 #xterm*background: 	black
 #xterm*foreground:	white
-URxvt*background: 	#0a0a0a
-URxvt*foreground:	white
+*background: 	#0a0a0a
+*foreground:	white
+#URxvt*background: 	#0a0a0a
+#URxvt*foreground:	white
 #URxvt*background:	white
 #URxvt*foreground:	black
 
@@ -58,7 +60,7 @@ URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso1
 *colorULMode:	true
 *underLine:	false
 *colorBDMode:	true
-URxvt.fading:	10
+URxvt.fading:	15
 
 URxvt*perl-ext-common:	default,matcher
 URxvt*matcher.button:	3
