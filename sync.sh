@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CONF_ESSENTIAL="
 .cvsignore
@@ -9,6 +9,7 @@ CONF_ESSENTIAL="
 .plan
 .profile
 .shrc
+.kshrc
 .zlogin
 .zshrc
 "
@@ -17,12 +18,16 @@ CONF_X11="
 .Xdefaults
 .Xmodmap
 .cwmrc
-.fehrc
 .fonts.conf
 .gtkrc-2.0
 local/bin/ceval
 local/bin/oimap
 local/bin/xkbd
+local/bin/genssltriple
+local/bin/dhcp-lease-list
+local/bin/convmv
+local/bin/mp
+local/bin/isoproc.py
 .mplayer/config
 .rtorrent.rc
 .terminfo
