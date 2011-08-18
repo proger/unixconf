@@ -15,7 +15,7 @@ export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/X11R7/bin:/usr/pkg/bin:/usr/pkg/sbin
 #export PATH=$PATH:/usr/pkg/qt4/bin:/usr/games
 
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/proger/local/objc/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/objc/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/llvm/Debug+Asserts/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
@@ -24,6 +24,7 @@ export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 #export PAGER=/usr/bin/less
 
 export EDITOR=/usr/bin/vim
+#export EDITOR=/usr/bin/emacs
 export PAGER=/bin/less
 export LESSCHARSET=utf-8
 
@@ -32,7 +33,7 @@ export LESSCHARSET=utf-8
 #unset LC_CTYPE
 case $TERM in
 #	*) export LC_CTYPE=uk_UA.KOI8-U;;
-	*) export LC_CTYPE=en_US.TF-8;;
+	*) export LC_CTYPE=en_US.UTF-8;;
 esac
 
 export TEXMFHOME=$HOME/.texmf
@@ -49,3 +50,5 @@ export HISTFILE=$HOME/.zshistory
 
 # for ksh
 export ENV=$HOME/.kshrc
+
+export ERL_LIBS=$HOME/dev/erlzmq2/ebin

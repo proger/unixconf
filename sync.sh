@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CONF_ESSENTIAL="
+.bashrc
 .cvsignore
 .cvsrc
 .gitconfig

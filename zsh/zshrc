@@ -78,6 +78,12 @@ _alias	compute		'while true; do head -n 100 /dev/urandom; sleep .1; done | hexdu
 _alias	randip		jot -r -s "." 4 1 255
 _alias	pics		'feh (*/)#^*-s.*(.)'
 
+_alias	pg		'ps axuww | g'
+_alias	yi		nocorrect yi
+#_alias  vim             emacs
+
+_alias	ck		sha256sum
+
 mkcd() {
 	mkdir $1
 	echo $1
@@ -119,9 +125,9 @@ authcopy() {
 vim() {
 	[ $# -eq 1 -a X"${1%%:*}" != X"$1" ] && {
 		# split /path/to/file/file.c:12345 to vim args
-		command vim `echo $1 | awk -F: '{print $1, "+"$2}'`
+		command $0 `echo $1 | awk -F: '{print $1, "+"$2}'`
 	} || {
-		command vim $*
+		command $0 $*
 	}
 }
 
@@ -247,22 +253,22 @@ bindkey -d
 WORDCHARS=${WORDCHARS//[\&\=\/\;\!\#\%\{\.]}	# honor more word separators
 
 # emacs
-#bindkey	-e
-#bindkey	"^[n"	backward-word
-#bindkey	"^[m"	forward-word
+bindkey	-e
+bindkey	"^[n"	backward-word
+bindkey	"^[m"	forward-word
 
 # -a: 	vicmd
 # -v:	viins
-bindkey -a	"/"	history-incremental-search-backward
-bindkey	-a	"?"	history-incremental-search-forward
-bindkey	-v	"^['"	insert-last-word
-bindkey	-v	"^W"	backward-kill-word
-bindkey	-v	"^R"	history-incremental-search-backward
-bindkey -v	"^A"	beginning-of-line
-bindkey -v	"^E"	end-of-line
-bindkey	-v	"^[n"	backward-word
-bindkey	-v	"^[m"	forward-word
-bindkey -v
+#bindkey -a	"/"	history-incremental-search-backward
+#bindkey	-a	"?"	history-incremental-search-forward
+#bindkey	-v	"^['"	insert-last-word
+#bindkey	-v	"^W"	backward-kill-word
+#bindkey	-v	"^R"	history-incremental-search-backward
+#bindkey -v	"^A"	beginning-of-line
+#bindkey -v	"^E"	end-of-line
+#bindkey	-v	"^[n"	backward-word
+#bindkey	-v	"^[m"	forward-word
+#bindkey -v
 
 # edit command in $EDITOR
 zle -N edit-command-line
@@ -381,6 +387,7 @@ ps1_vcs() {
 }
 
 export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
+#export	PS1="%(0?..${red}%? )${GRAY}λ$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 

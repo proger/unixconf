@@ -1,2 +1,16 @@
 keycode 233 = Page_Down
 keycode 234 = Page_Up
+
+clear Lock
+
+! remove Lock = Caps_Lock
+
+! make Control_L useless
+keycode 37 = XF86WLAN
+! add Mod3 = Caps_Lock
+! remove Control = Control_L
+
+! add Lock = Caps_Lock
+! add Control = Caps_Lock
+! keysym Caps_Lock = Control_L
+
