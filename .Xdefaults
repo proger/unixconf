@@ -107,11 +107,11 @@ Xft.hinting:		true
 Xft.hintstyle:		hintmedium
 
 xpdf*fontList: 		-xos4-terminus-medium-r-normal--12-120-72-72-c-60-koi8-u
-xpdf*Foreground: 	#EEEEEC
-xpdf*Background: 	#000000
+xpdf*Foreground: 	#111
+xpdf*Background: 	#eee
 xpdf*enableFreetype:    yes
 xpdf*antialias:         yes
-xpdf*urlCommand:        /usr/local/bin/firefox %s
+xpdf*urlCommand:        /usr/bin/firefox %s
 xpdf*initialZoom: 	width
 xpdf*toolTipEnable:	false
 
