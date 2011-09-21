@@ -388,9 +388,11 @@ ps1_vcs() {
 	}
 }
 
-export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
-#export	PS1="%(0?..${red}%? )${GRAY}λ$NOCOLOR "
-export	PS1="${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
+parent=$(ps h -o comm -p $PPID)
+[ $parent = "xterm" ] && parent="" || parent="${RED}$parent "
+
+export	PS1="$parent${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
+#export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 
