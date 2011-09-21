@@ -49,3 +49,4 @@ bind	MS-f	maximize
 #bind	CM-=	vmaximize
 
 bind	CMS-x	reload
+bind	CMS-q	unmap
