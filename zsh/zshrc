@@ -54,6 +54,7 @@ _alias	gdb		gdb -q
 _alias	py		ipython
 _alias	hs		ghci
 _alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
+_alias	ljdb		java -cp /usr/lib/jline/jline.jar:/usr/lib/jvm/java-6-openjdk/lib/tools.jar jline.ConsoleRunner com.sun.tools.example.debug.tty.TTY
 
 _alias	ifconfig	sudo ifconfig
 
@@ -82,7 +83,8 @@ _alias	pg		'ps axuww | g'
 _alias	yi		nocorrect yi
 #_alias  vim             emacs
 
-_alias	ck		sha256sum
+#_alias	ck		sha256sum
+_alias	ck		sha512sum
 
 mkcd() {
 	mkdir $1
@@ -284,7 +286,7 @@ export	DIRSTACKSIZE=30
 setopt	APPEND_HISTORY
 setopt	INC_APPEND_HISTORY
 setopt	EXTENDED_HISTORY
-#setopt	HIST_IGNORE_DUPS
+setopt	HIST_IGNORE_DUPS
 setopt	HIST_IGNORE_SPACE
 setopt	HIST_REDUCE_BLANKS
 setopt	HIST_SAVE_NO_DUPS
@@ -388,6 +390,7 @@ ps1_vcs() {
 
 export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
 #export	PS1="%(0?..${red}%? )${GRAY}λ$NOCOLOR "
+export	PS1="${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 
