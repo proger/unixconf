@@ -1,6 +1,6 @@
 #stty status '^T'
 
-export PATH=$HOME/local/bin:$HOME/.local/bin
+export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
 
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
