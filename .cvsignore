@@ -3,3 +3,8 @@ tags
 *.o
 *.pyc
 *.ppu
+*.beam
+*.swp
+*.jar
+*.class
+*.app
