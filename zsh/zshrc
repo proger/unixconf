@@ -274,7 +274,7 @@ bindkey	"^[m"	forward-word
 
 # edit command in $EDITOR
 zle -N edit-command-line
-bindkey		"^N"	edit-command-line
+bindkey		"^S"	edit-command-line
 
 # history
 export	HISTIGNORE="&:ll:ls:[bf]g:exit:reset:cl:clear:cd:..:halt"

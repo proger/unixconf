@@ -25,7 +25,7 @@ export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 
 export EDITOR=/usr/bin/vim
 #export EDITOR=/usr/bin/emacs
-export PAGER=/bin/less
+#export PAGER=/bin/less
 export LESSCHARSET=utf-8
 
 #export LANG=en_US.UTF-8
