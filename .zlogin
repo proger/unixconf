@@ -3,11 +3,13 @@
 export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
 
+export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
+
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
 #
-export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
@@ -52,3 +54,5 @@ export HISTFILE=$HOME/.zshistory
 export ENV=$HOME/.kshrc
 
 export ERL_LIBS=$HOME/dev/erlzmq2/ebin
+
+export PYTHONPATH=/proger/.local/lib/python2.7/site-packages

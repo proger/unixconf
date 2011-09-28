@@ -30,4 +30,4 @@
 	branch = auto
 
 [core]
-	excludesfile = /tank/proger/.cvsignore
+	excludesfile = /proger/.cvsignore
