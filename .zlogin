@@ -1,4 +1,4 @@
-#stty status '^T'
+stty status '^T'
 
 export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
@@ -8,7 +8,8 @@ export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
 #
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin
+export PATH=$PATH:/Developer/usr/bin
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin

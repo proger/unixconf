@@ -11,3 +11,6 @@ tags
 **/xcuserdata/*
 *.xcuserdatad
 *.xcuserstate
+*.xcworkspace
+erl_crash.dump
+*.deb

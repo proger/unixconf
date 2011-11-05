@@ -122,7 +122,7 @@ sedi() {
 }
 
 authcopy() {
-	cat ~/.ssh/authorized_keys | ssh $* 'mkdir -p .ssh; cat > .ssh/authorized_keys'
+	cat ~/.ssh/authorized_keys | ssh $* 'mkdir -p .ssh; cat >> .ssh/authorized_keys'
 }
 
 vim() {
@@ -389,11 +389,12 @@ ps1_vcs() {
 	}
 }
 
-#parent=$(ps h -o comm -p $PPID)
-parent=""
-#[ $parent = "xterm" ] && parent="" || parent="${RED}$parent "
+parent=$(ps -o comm= -p $PPID)
+#parent=""
+[ $parent = "login" ] && parent="" || parent="${RED}$parent "
+[ $USER = "proger" ] && user="" || user=" ${CYAN}%n "
 
-export	PS1="$parent${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
+export	PS1="$parent${white}%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 
