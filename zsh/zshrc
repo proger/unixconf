@@ -389,7 +389,10 @@ ps1_vcs() {
 }
 
 parent=$(ps h -o comm -p $PPID)
-[ $parent = "xterm" ] && parent="" || parent="${RED}$parent "
+case $parent in
+	xterm|tmux|sshd) parent="";;
+	*) parent="${RED}$parent ";;
+esac
 
 export	PS1="$parent${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
 #export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
