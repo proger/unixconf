@@ -16,6 +16,7 @@ xterm*scrollTtyOutput:	false
 xterm*scrollTtyKeypress:true
 xterm*scrollKey:	true
 URxvt*scrollBar:	false
+*visualBell:		false
 
 xterm*eightBitInput:	true
 xterm*metaSendsEscape:	true

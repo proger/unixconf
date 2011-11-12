@@ -300,8 +300,8 @@ zle -N incremental-complete-word
 zle -N insert-files
 zle -N predict-on
 
-# matching
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# case-insensitive matching
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # formatting and messages
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
