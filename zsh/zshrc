@@ -22,7 +22,8 @@ _alias() {
 
 _alias	up		'source ~/.zlogin && source ~/.zshrc'
 
-_alias	ll		ls -lhF --group-directories-first
+#_alias	ll		ls -lhF --group-directories-first
+_alias	ll		ls -lhFG
 _alias	la		ll -as
 _alias	lt		ll -ut
 #_alias	lld		ls -lhF -cr
@@ -123,7 +124,7 @@ sedi() {
 }
 
 authcopy() {
-	cat ~/.ssh/authorized_keys | ssh $* 'mkdir -p .ssh; cat > .ssh/authorized_keys'
+	cat ~/.ssh/authorized_keys | ssh $* 'mkdir -p .ssh; cat >> .ssh/authorized_keys'
 }
 
 vim() {
@@ -387,15 +388,19 @@ ps1_vcs() {
 	}
 }
 
-parent=$(ps -o comm= -p $PPID)
+parent=$(basename $(ps -o comm= -p $PPID))
 case $parent in
-	xterm|urxvt|tmux|sshd) parent="";;
+	xterm|urxvt|tmux|sshd|login) parent="";;
 	*) parent="${RED}$parent ";;
 esac
-#parent=""
 
-export	PS1="$parent${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
-#export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
+case $USER in
+	proger) user="";;
+	root) user=" ${red}%n ";;
+	*) user=" ${CYAN}%n ";;
+esac
+
+export	PS1="$parent${white}%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 

@@ -1,15 +1,19 @@
-#stty status '^T'
+stty status '^T' 2>/dev/null || true
 
-export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
+export PATH=$HOME/local/bin:$HOME/.local/bin
+export PATH=$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
+
+export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
 
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
-#
-export PATH=$PATH:/usr/gnu/bin
+
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
-#export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
-export PATH=$PATH:/sbin:/usr/bin:/usr/sbin
+export PATH=$PATH:/Developer/usr/bin
+export PATH=$PATH:/usr/gnu/bin
+export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
@@ -48,9 +52,11 @@ export GEM_HOME=$HOME/local/ruby
 #export PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0
 #export PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0/x86_64-netbsd-thread-multi
 
-export HISTFILE=$HOME/.zshistory
+export ERL_LIBS=$HOME/dev/erlzmq2/ebin
+export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages
 
+
+export HISTFILE=$HOME/.zshistory
 # for ksh
 export ENV=$HOME/.kshrc
 
-export ERL_LIBS=$HOME/dev/erlzmq2/ebin
