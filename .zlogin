@@ -1,7 +1,7 @@
 stty status '^T' 2>/dev/null || true
 
 export PATH=$HOME/local/bin:$HOME/.local/bin
-export PATH=$HOME/local/ruby/bin
+export PATH=$PATH:$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
 
 export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin

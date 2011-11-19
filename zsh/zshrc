@@ -394,7 +394,7 @@ case $parent in
 	*) parent="${RED}$parent ";;
 esac
 
-case $USER in
+case ${USER:-$LOGNAME} in
 	proger) user="";;
 	root) user=" ${red}%n ";;
 	*) user=" ${CYAN}%n ";;
