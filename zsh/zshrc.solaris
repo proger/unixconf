@@ -1,0 +1,18 @@
+_alias	ls		ls --color=auto
+_alias	pkg		sudo pkg
+_alias	mm		tail -f /var/adm/messages
+
+umount() {
+	umount=/sbin/umount
+	[ $1 = "." ] && {
+		opwd=$PWD
+		cd ..
+		sudo $umount $opwd
+	} || {
+		sudo $umount $*
+	}
+}
+
+export CVS_RSH=ssh
+
+# vim: ft=zsh

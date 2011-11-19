@@ -6,8 +6,10 @@ export PATH=$PATH:$HOME/.cabal/bin
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
 #
+export PATH=$PATH:/usr/gnu/bin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
-export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
+#export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH=$PATH:/sbin:/usr/bin:/usr/sbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
@@ -21,7 +23,7 @@ export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
 
 #export EDITOR=/usr/local/bin/vim
-#export PAGER=/usr/bin/less
+export PAGER=/usr/bin/less
 
 export EDITOR=/usr/bin/vim
 #export EDITOR=/usr/bin/emacs

@@ -1,6 +1,8 @@
 # proger's zshrc
 # generic
 
+source ~/.zlogin
+
 # modules
 autoload	-U zargs
 autoload	-U compinit promptinit
@@ -375,9 +377,6 @@ local NOCOLOR="%{"$'\e[0m'"%}"
 local NEWLINE="%{"$'\e[80D'"%}"
 # }}}
 
-#export	PS1="${white}%m ${blue}%3~ ${red}%? ${GRAY}%#$NOCOLOR "
-#export	PS1="${gray}%m${GRAY}%#$NOCOLOR "
-
 ps1_vcs() {
 	[ -f .svn/entries ] && {
 		ent=($(<.svn/entries))
@@ -388,11 +387,12 @@ ps1_vcs() {
 	}
 }
 
-parent=$(ps h -o comm -p $PPID)
+parent=$(ps -o comm= -p $PPID)
 case $parent in
-	xterm|tmux|sshd) parent="";;
+	xterm|urxvt|tmux|sshd) parent="";;
 	*) parent="${RED}$parent ";;
 esac
+#parent=""
 
 export	PS1="$parent${white}%m%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
 #export	PS1="%(0?..${red}%? )${GRAY}%#$NOCOLOR "
@@ -400,7 +400,7 @@ export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 
 case $TERM in
-	xterm*|rxvt*)
+	xterm*|*rxvt*)
 		precmd() {
 			print -Pn "\033]0;%M:%l:%~\a"
 		}
