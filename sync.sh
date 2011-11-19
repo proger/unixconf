@@ -33,7 +33,6 @@ local/bin/isoproc.py
 .rtorrent.rc
 .terminfo
 .vimperatorrc
-.vimperatorrc36
 .xinitrc
 "
 
