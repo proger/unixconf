@@ -7,8 +7,10 @@ _alias	iw		sudo iw
 _alias	gmake		make
 _alias	rc.d		sudo rc.d
 _alias	iptables	sudo iptables
-
 _alias	ifconfig	ip addr
+
+_alias	spawntrace	strace -f -e trace=execve -e signal=\!all -s 64 -q
+
 
 umount() {
 	umount=/bin/umount
