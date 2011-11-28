@@ -33,7 +33,7 @@ xterm*VT100*allowC1Printable: true
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 xterm*boldMode:		false
 
-xterm*font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
@@ -150,6 +150,6 @@ gnuplot*line8Color:	coral
 # vncviewer
 vncviewer*qualityLevel:		1
 vncviewer*compressLevel:	9
-vncviewer*useBGR233:		true
+vncviewer*useBGR233:		false
 
 # vim: foldmethod=marker
