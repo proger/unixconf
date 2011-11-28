@@ -138,3 +138,7 @@ widget_class "*<GtkCList>" style "mist-fg-is-text-color-workaround"
 
 #gtk-font-name="Terminus 9"
 gtk-icon-theme-name="Tango"
+
+gtk-error-bell = 0
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
