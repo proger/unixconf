@@ -1,9 +1,11 @@
 _alias	ls		ls --color=auto
 _alias	pkg		sudo pkg
 _alias	mm		tail -f /var/adm/messages
+_alias	pg		'ps -efl | sort -n -k 12 | g'
+_alias	d		date -R
 
 umount() {
-	umount=/sbin/umount
+	local umount=/sbin/umount
 	[ $1 = "." ] && {
 		opwd=$PWD
 		cd ..
@@ -11,6 +13,18 @@ umount() {
 	} || {
 		sudo $umount $*
 	}
+}
+
+kvm() {
+	local vnic=$1
+	local args="${argv[2, -1]}"	
+	local MAC=$(dladm show-vnic -po macaddress $vnic)
+
+	sudo qemu-kvm -cpu kvm32 -m 1G \
+		-hda /dev/zvol/rdsk/rpool/export/debian \
+		-net nic,vlan=0,name=net0,model=e1000,macaddr=$MAC \
+		-net vnic,vlan=0,name=net0,ifname=$vnic,macaddr=$MAC \
+		-no-hpet -vnc 127.0.0.1:1 -vga std
 }
 
 export CVS_RSH=ssh

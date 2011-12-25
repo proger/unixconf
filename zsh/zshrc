@@ -389,15 +389,14 @@ ps1_vcs() {
 	}
 }
 
-parent=$(basename $(ps -o comm= -p $PPID))
+parent=$(basename ${$(ps -o comm= -p $PPID)#-})
 case $parent in
-	xterm|urxvt|tmux|sshd|login) parent="";;
+	xterm|urxvt|tmux|sshd|sudo|login|gnome*) parent="";;
 	*) parent="${RED}$parent ";;
 esac
 
 case ${USER:-$LOGNAME} in
-	proger) user="";;
-	root) user=" ${red}%n ";;
+	proger|root) user="";;
 	*) user=" ${CYAN}%n ";;
 esac
 

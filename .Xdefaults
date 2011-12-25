@@ -18,6 +18,7 @@ xterm*scrollKey:	true
 URxvt*scrollBar:	false
 *visualBell:		false
 
+xterm*marginBell:	false
 xterm*eightBitInput:	true
 xterm*metaSendsEscape:	true
 xterm*altSendsEscape:	true
@@ -30,14 +31,19 @@ xterm*VT100*allowC1Printable: true
 #xterm*eightBitSelectTypes: true
 
 #xterm*font:		-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1
-#xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+xterm*font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 xterm*boldMode:		false
 
-xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
-xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*faceName:		Menlo:pixelsize=13
+#xterm*faceName:		monospace
+#xterm*faceSize:		10
+#xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
-URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
-URxvt.boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+#URxvt.boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 #xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
 #xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1

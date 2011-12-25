@@ -21,6 +21,8 @@ xkbd
 
 #env > ~/.startx.env
 
+/usr/lib/gnome-settings-daemon
+
 #exec env LC_CTYPE=en_US.UTF-8 awesome 2>&1 >> .awesome.errors
 #ion3
 #wmaker
