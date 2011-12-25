@@ -27,6 +27,13 @@ kvm() {
 		-no-hpet -vnc 127.0.0.1:1 -vga std
 }
 
+bat() {
+	local rate=$(kstat -p "acpi_drv:0:battery BST0:bst_rate" | awk -F"\t" '{print $2}').0
+	local capacity=$(kstat -p "acpi_drv:0:battery BST0:bst_rem_cap" | awk -F"\t" '{print $2}').0
+	printf "capacity: %d rate: %d est: %3.1f hours\n" \
+		$capacity $rate $(($capacity / $rate))
+}
+
 export CVS_RSH=ssh
 
 # vim: ft=zsh
