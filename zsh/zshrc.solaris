@@ -17,11 +17,13 @@ umount() {
 
 kvm() {
 	local vnic=$1
-	local args="${argv[2, -1]}"	
+	local zvol=$2
 	local MAC=$(dladm show-vnic -po macaddress $vnic)
+	local args="${argv[3, -1]}"
 
-	sudo qemu-kvm -cpu kvm32 -m 1G \
-		-hda /dev/zvol/rdsk/rpool/export/debian \
+	sudo qemu-kvm -m 1G \
+		$args \
+		-hda /dev/zvol/rdsk/$zvol \
 		-net nic,vlan=0,name=net0,model=e1000,macaddr=$MAC \
 		-net vnic,vlan=0,name=net0,ifname=$vnic,macaddr=$MAC \
 		-no-hpet -vnc 127.0.0.1:1 -vga std
