@@ -36,6 +36,14 @@ bat() {
 		$capacity $rate $(($capacity / $rate))
 }
 
+kfuntrace() {
+	local fun=$1
+	dtrace -x flowindent \
+		-n ${fun}:entry'{ stack(); self->traced = 1; }' \
+		-n fbt:::'/self->traced/{}' \
+		-n ${fun}:return'{ self->traced = 0 }'
+}
+
 export CVS_RSH=ssh
 
 # vim: ft=zsh
