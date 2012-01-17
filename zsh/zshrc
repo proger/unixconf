@@ -209,6 +209,16 @@ mongod() {
 	}
 }
 
+pg_grep() {
+	local db=$1
+	local pat=$2
+	local table
+
+	for table in $(psql -Atc '\dt' -d $db | awk -F\| '{print $2}'); do
+		psql -Atc "select * from $table" -d $db | grep $pat | sed "s/^/$table:/"
+	done
+}
+
 graph() {
 	local arg="${argv[3, -1]}"
 	local file="`basename $2`.png"
