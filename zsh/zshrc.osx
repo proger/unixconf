@@ -7,3 +7,4 @@ _alias	mm	tail -f /var/log/system.log
 _alias	fsi	mono /usr/lib/fsharp/fsi.exe
 _alias	fsc	mono /usr/lib/fsharp/fsc.exe
 _alias	dtrace	sudo dtrace
+_alias	truss	sudo dtruss -f sudo -u proger
