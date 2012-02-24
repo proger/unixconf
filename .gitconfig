@@ -19,6 +19,7 @@
 	l  = log -u --name-status --stat --summary --color
 	lo = log --format=oneline
 	lg = log --graph --decorate --pretty=oneline --abbrev-commit
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%aE>%Creset' --abbrev-commit --date=local --all
 	lp = log -p
 	head = log -1 HEAD
 	up = pull --rebase
@@ -30,4 +31,4 @@
 	branch = auto
 
 [core]
-	excludesfile = /home/proger/.cvsignore
+	excludesfile = /tank/proger/.cvsignore

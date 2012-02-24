@@ -3,8 +3,30 @@ nowplaying() {
 	osascript -e 'tell application "iTunes" to name of current track as string'
 }
 
-_alias	mm	tail -f /var/log/system.log
-_alias	fsi	mono /usr/lib/fsharp/fsi.exe
-_alias	fsc	mono /usr/lib/fsharp/fsc.exe
-_alias	dtrace	sudo dtrace
-_alias	truss	sudo dtruss -f sudo -u proger
+execstop() {
+	local name=$1
+	dtrace -w \
+		-n "proc:::exec-success /execname==\"$name\"/ { trace(execname); stopped = pid; stop() }" \
+		-n END"/stopped != 0/ { pidresume(stopped) }"
+}
+
+plj() {
+	plutil -convert json $1 -o - | json
+}
+
+pstack() {
+	set -x
+	local pid=$1
+	local comm=$(which "$(ps -o comm= -p $pid)")
+	[ $? -eq 0 ] && {
+		echo thread apply all backtrace | gdb $comm $pid
+	}
+}
+
+_alias	mm		tail -f /var/log/system.log
+_alias	fsi		mono /usr/lib/fsharp/fsi.exe
+_alias	fsc		mono /usr/lib/fsharp/fsc.exe
+_alias	dtrace		sudo dtrace
+_alias	truss		sudo dtruss -f sudo -u proger
+_alias	pg		'ps -ef | g'
+_alias	gentags		/usr/local/Cellar/ctags/5.8/bin/ctags -R --format=2

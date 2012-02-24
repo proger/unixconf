@@ -46,8 +46,6 @@ set	nomark_old
 set	noautoedit
 set	fast_reply
 set	edit_headers
-#set	mime_forward	= yes
-#set	mime_forward_rest = yes
 
 set	sort		= 'threads'
 set	sort_aux	= 'last-date-received'

@@ -1,3 +1,2 @@
 # Write your default config options here!
-ao=sun
-vo=x11
+ao=alsa

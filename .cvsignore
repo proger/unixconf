@@ -14,3 +14,6 @@ tags
 *.xcworkspace
 erl_crash.dump
 *.deb
+.DS_Store
+*.dylib
+*.so

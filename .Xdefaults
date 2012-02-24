@@ -16,9 +16,7 @@ xterm*scrollTtyOutput:	false
 xterm*scrollTtyKeypress:true
 xterm*scrollKey:	true
 URxvt*scrollBar:	false
-*visualBell:		false
 
-xterm*marginBell:	false
 xterm*eightBitInput:	true
 xterm*metaSendsEscape:	true
 xterm*altSendsEscape:	true
@@ -31,23 +29,12 @@ xterm*VT100*allowC1Printable: true
 #xterm*eightBitSelectTypes: true
 
 #xterm*font:		-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1
-xterm*font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 xterm*boldMode:		false
 
-#xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
-#xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
-#xterm*font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
-#xterm*faceName:		Menlo:pixelsize=13
-#xterm*faceName:		monospace
-#xterm*faceSize:		10
-#xterm*font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
-
-#URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
-#URxvt.boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
-
-#xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
-#xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1
-#xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
+xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1
+xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 #xterm*boldFont:	-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
@@ -61,10 +48,10 @@ xterm*boldMode:		false
 #URxvt*background:	white
 #URxvt*foreground:	black
 
-#URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
-#URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
-#URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
-#URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso10646-1\007
+URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso10646-1\007
 #URxvt.font:		-xos4-terminus-medium-*-*-14-*-*-*-*-*-iso10646-1
 #URxvt.font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 #URxvt*boldMode:		false
@@ -156,6 +143,6 @@ gnuplot*line8Color:	coral
 # vncviewer
 vncviewer*qualityLevel:		1
 vncviewer*compressLevel:	9
-vncviewer*useBGR233:		false
+vncviewer*useBGR233:		true
 
 # vim: foldmethod=marker
