@@ -23,6 +23,7 @@
 	lp = log -p
 	head = log -1 HEAD
 	up = pull --rebase
+	cp = cherry-pick
 
 [color]
 	ui = auto

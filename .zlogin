@@ -11,6 +11,7 @@ export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin
 export PATH=$PATH:/Developer/usr/bin
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
+export PATH=$PATH:/usr/texbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
@@ -56,7 +57,8 @@ export HISTFILE=$HOME/.zshistory
 
 #export ERL_LIBS=$HOME/dev/erlzmq2/ebin
 
-export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages
+export PYTHONPATH=$HOME/local/python:$HOME/.local/lib/python2.7/site-packages
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 # flex
 #export PATH=/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:$PATH
