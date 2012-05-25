@@ -82,11 +82,17 @@ _alias	randip		jot -r -s "." 4 1 255
 _alias	pics		'feh (*/)#^*-s.*(.)'
 
 _alias	pg		'ps axuww | g'
-_alias	yi		nocorrect yi
 #_alias  vim             emacs
 
 #_alias	ck		sha256sum
 _alias	ck		sha512sum
+
+_alias	xmlp		tidy -xml -q --escape-cdata y
+
+clean() {
+	export PS1="%% "
+	unset RPS1
+}
 
 mkcd() {
 	mkdir $1

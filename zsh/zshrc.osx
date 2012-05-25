@@ -30,3 +30,4 @@ _alias	dtrace		sudo dtrace
 _alias	truss		sudo dtruss -f sudo -u proger
 _alias	pg		'ps -ef | g'
 _alias	gentags		/usr/local/Cellar/ctags/5.8/bin/ctags -R --format=2
+_alias	lsof		sudo lsof

@@ -1,9 +1,10 @@
 stty status '^T'
 
 export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
-export PATH=$PATH:$HOME/.cabal/bin
+#export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/Library/Haskell/bin
 
-export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
+#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
 
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
@@ -46,7 +47,8 @@ esac
 export GEM_HOME=$HOME/local/ruby
 
 #export _PERL5LIB=$PERL5LIB
-#export PERL5LIB=$PERL5LIB:~/local/perl/lib/perl5
+#export PERL5LIB=$PERL5LIB:~/local/perl/lib/perl5:/tank/proger/local/perl/lib/perl5/site_perl/5.12.3/darwin-thread-multi-2level
+export PERL5LIB=$PERL5LIB:~/local/perl/lib/perl5/site_perl
 #export PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0
 #export PERL5LIB=$PERL5LIB:$HOME/local/perl/lib/perl5/site_perl/5.12.0/x86_64-netbsd-thread-multi
 
@@ -65,3 +67,11 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 #export FLEX_HOME=/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec
 # mkdir -p ~/.ant/lib
 # ln -s /usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/ant/lib/flexTasks.jar
+
+export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_VERSION=CurrentJDK
+
+export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#
