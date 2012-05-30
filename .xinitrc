@@ -10,7 +10,7 @@ xsetroot -solid '#161e25'
 xsetroot -cursor_name left_ptr
 xset m 2 1
 xset b off
-#xset +fp /usr/share/fonts/local
+xset +fp /usr/share/fonts/local
 #xset fp+ /usr/local/share/ghostscript/fonts
 xkbd
 #root-tail -f -g 1000x740+10+5 --shade /var/log/xferlog,green /var/log/authlog,red /var/log/messages,white

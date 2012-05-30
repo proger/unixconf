@@ -32,9 +32,15 @@ xterm*VT100*allowC1Printable: true
 xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 xterm*boldMode:		false
 
-xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
-xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1
-xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+#xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+#
+#URxvt.font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
+#URxvt.boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
+
+#xterm*Font1:		-xos4-terminus-medium-*-*-12-*-*-*-*-*-iso10646-1
+#xterm*Font2:		-xos4-terminus-bold-*-*-16-*-*-*-*-*-iso10646-1
+#xterm*Font3:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 #xterm*boldFont:	-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
