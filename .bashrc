@@ -9,3 +9,5 @@ alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ll -a'
 PS1='\h\$ '
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

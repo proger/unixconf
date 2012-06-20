@@ -5,6 +5,7 @@ CONF_ESSENTIAL="
 .cvsignore
 .cvsrc
 .ctags
+.gdbinit
 .gitconfig
 .mailcap
 .muttrc
