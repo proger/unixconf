@@ -33,3 +33,5 @@
 
 [core]
 	excludesfile = /tank/proger/.cvsignore
+[diff]
+	renames = true

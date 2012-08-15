@@ -17,7 +17,7 @@ plj() {
 pstack() {
 	set -x
 	local pid=$1
-	local comm=$(which "$(ps -o comm= -p $pid)")
+	local comm="$(which "$(ps -o comm= -p $pid)")"
 	[ $? -eq 0 ] && {
 		echo thread apply all backtrace | gdb $comm $pid
 	}

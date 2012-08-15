@@ -13,6 +13,7 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin
 export PATH=$PATH:/Developer/usr/bin
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 export PATH=$PATH:/usr/texbin
+export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
 
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
@@ -74,4 +75,5 @@ export JAVA_VERSION=CurrentJDK
 export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-#
+
+export COPYFILE_DISABLE=true
