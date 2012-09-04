@@ -230,6 +230,12 @@ graph() {
 	feh "$file"
 }
 
+agent() {
+	ssh-agent | grep export > ~/.ssh_agent
+	ssh-add ~/.ssh/id_rsa
+	source ~/.ssh_agent
+}
+
 # background automatically
 zz() {
 	echo $*

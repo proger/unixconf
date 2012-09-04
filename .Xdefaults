@@ -16,6 +16,7 @@ xterm*scrollTtyOutput:	false
 xterm*scrollTtyKeypress:true
 xterm*scrollKey:	true
 URxvt*scrollBar:	false
+*visualBell:		false
 
 xterm*eightBitInput:	true
 xterm*metaSendsEscape:	true
@@ -29,9 +30,12 @@ xterm*VT100*allowC1Printable: true
 #xterm*eightBitSelectTypes: true
 
 #xterm*font:		-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1
+#xterm*Font:		-xos4-terminus-medium-*-*-14-*-*-*-*-*-iso10646-1
 xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+#xterm*faceName:		Meslo LG S
+#xterm*faceSize:		13
 xterm*boldMode:		false
-
+xterm*geometry:		100x30
 #xterm*font:		-misc-fixed-medium-*-*-*-15-*-*-*-*-*-iso10646-1
 #xterm*boldFont:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 #
@@ -45,19 +49,20 @@ xterm*boldMode:		false
 #xterm*Font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 #xterm*boldFont:	-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
 
-#xterm*background: 	black
-#xterm*foreground:	white
-*background: 	#0a0a0a
-*foreground:	white
+xterm*background: 	white
+xterm*foreground:	black
+#*background: 	#0a0a0a
+#*foreground:	white
+
 #URxvt*background: 	#0a0a0a
 #URxvt*foreground:	white
 #URxvt*background:	white
 #URxvt*foreground:	black
 
-URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
-URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
-URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
-URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso10646-1\007
+#URxvt.font:		-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1
+#URxvt.keysym.C-0:	command:\033]710;-xos4-terminus-bold-*-*-14-*-*-*-*-*-iso10646-1\007
+#URxvt.keysym.C-minus:	command:\033]710;-xos4-terminus-bold-*-*-12-*-*-*-*-*-iso10646-1\007
+#URxvt.keysym.C-equal:	command:\033]710;-xos4-terminus-bold-*-*-20-*-*-*-*-*-iso10646-1\007
 #URxvt.font:		-xos4-terminus-medium-*-*-14-*-*-*-*-*-iso10646-1
 #URxvt.font:		-misc-fixed-bold-*-*-*-15-*-*-*-*-*-iso10646-1
 #URxvt*boldMode:		false
@@ -105,12 +110,12 @@ URxvt*urlLauncher:	firefox
 *color15: #eeeeec
 # }}}
 
-Xft.dpi:		96
-Xft.antialias:		true
-Xft.rgba:		vrgb
-Xft.autohint:		false
-Xft.hinting:		true
-Xft.hintstyle:		hintmedium
+#Xft.dpi:		96
+#Xft.antialias:		true
+#Xft.rgba:		vrgb
+#Xft.autohint:		false
+#Xft.hinting:		true
+#Xft.hintstyle:		hintmedium
 
 xpdf*fontList: 		-xos4-terminus-medium-r-normal--12-120-72-72-c-60-koi8-u
 xpdf*Foreground: 	#111
