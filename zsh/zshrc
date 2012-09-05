@@ -298,7 +298,7 @@ bindkey	"^[m"	forward-word
 
 # edit command in $EDITOR
 zle -N edit-command-line
-bindkey		"^S"	edit-command-line
+bindkey		'\C-x\C-e'	edit-command-line
 
 # history
 export	HISTIGNORE="&:ll:ls:[bf]g:exit:reset:cl:clear:cd:..:halt"
@@ -363,7 +363,8 @@ zstyle ':completion:*:*:vi*:*' ignored-patterns '(*.(o|class|pyc)|CVS|a.out)'
 zstyle ':completion:*:scp:*' tag-order \
    files 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *' users
 
-zstyle ':completion:*:vnc*:*' _hosts
+zstyle ':completion:*:ssh:*' hosts ${${(s:,:)${(j:,:)${${(u)${(f)"$(<~/.ssh/known_hosts)"}%%[, |#]*}%"]"*}##*"["}}}
+
 
 # man stuff
 zstyle ':completion:*:manuals' separate-sections true
