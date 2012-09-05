@@ -23,7 +23,7 @@ pstack() {
 	}
 }
 
-_alias	mm		tail -f /var/log/system.log
+_alias	mm		less +F /var/log/system.log
 _alias	fsi		mono /usr/lib/fsharp/fsi.exe
 _alias	fsc		mono /usr/lib/fsharp/fsc.exe
 _alias	dtrace		sudo dtrace

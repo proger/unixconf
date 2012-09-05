@@ -1,5 +1,5 @@
 _alias	ls		ls --color=auto
-_alias	mm		tail -f /var/log/messages
+_alias	mm		less +F /var/log/messages
 
 _alias	pacman		sudo pacman
 _alias	ip		sudo ip
