@@ -36,6 +36,8 @@ local/bin/isoproc.py
 .terminfo
 .vimperatorrc
 .xinitrc
+.config/awesome/rc.lua
+.config/awesome/zenburn/theme.lua
 "
 
 CONF_DEV="
