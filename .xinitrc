@@ -32,6 +32,7 @@ xkbd
 #/usr/local/e/bin/enlightenment_start -profile standard
 #/usr/local/e/bin/enlightenment_start 
 #/usr/local/bin/fvwm
-cwm || xterm
+awesome || xterm
+#cwm || xterm
 #openbox || xterm
 #fvwm
