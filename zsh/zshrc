@@ -89,6 +89,8 @@ _alias	ck		sha512sum
 
 _alias	xmlp		tidy -xml -q --escape-cdata y
 
+_alias	rtmp		rtmpdump -o /dev/null -V -v -r
+
 clean() {
 	export PS1="%% "
 	unset RPS1
