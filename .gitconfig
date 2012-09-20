@@ -2,12 +2,6 @@
 	email = proger@wilab.org.ua
 	name = Vladimir Kirillov
 
-[url "gitosis@git.hackndev.com:"]
-	insteadOf = "hnd:"
-
-[url "eva.atmnis.com:"]
-	insteadOf = "eva:"
-
 [alias]
 	#st = status -sb
 	st = status
@@ -33,5 +27,6 @@
 
 [core]
 	excludesfile = /tank/proger/.cvsignore
+
 [diff]
 	renames = true
