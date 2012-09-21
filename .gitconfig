@@ -30,3 +30,6 @@
 
 [diff]
 	renames = true
+
+[push]
+	default = tracking
