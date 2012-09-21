@@ -1,6 +1,8 @@
 #!/bin/sh
 
-ctmp=`mktemp /tmp/ceval.XXXXXX`.c
+EXT=${EXT:-c}
+CC=${CC:-clang}
+ctmp=`mktemp /tmp/ceval.XXXXXX`.${EXT}
 
 cat > $ctmp << EOF
 #define _LARGEFILE64_SOURCE
@@ -11,10 +13,6 @@ cat > $ctmp << EOF
 
 #define _p printf
 EOF
-
-for arg in $*; do
-	echo "#include <$arg>" >> $ctmp
-done
 
 cat >> $ctmp << EOF
 int
@@ -29,7 +27,7 @@ cat >> $ctmp << EOF
 }
 EOF
 
-cc -o $ctmp.out $ctmp
+$CC $* -o $ctmp.out $ctmp
 $ctmp.out
 echo
 rm -f $ctmp.out $ctmp
