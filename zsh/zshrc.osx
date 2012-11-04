@@ -6,12 +6,8 @@ nowplaying() {
 execstop() {
 	local name=$1
 	dtrace -w \
-		-n "proc:::exec-success /execname==\"$name\"/ { trace(execname); stopped = pid; stop() }" \
+		-n "proc:::exec-success /execname==\"$name\"/ { trace(pid); stopped = pid; stop() }" \
 		-n END"/stopped != 0/ { pidresume(stopped) }"
-}
-
-plj() {
-	plutil -convert json $1 -o - | json
 }
 
 pstack() {
@@ -23,11 +19,25 @@ pstack() {
 	}
 }
 
+preap_all() {
+	ps -e -o pid,ppid,xstat,comm \
+		| awk '$3 != 0 && $4 ~ /\(.*\)$/ {
+			printf "(printf \"call (int)waitpid(%d, 0, 1)\\nquit\\n\"; cat /dev/zero) | gdb -q $(ps -o comm= -p %d) %d\n",
+					$1, $2, $2; 
+		       }' \
+		| sh
+}
+
+nat() {
+	sudo sysctl -w net.inet.ip.forwarding=1
+	sudo pfctl -f /etc/pf.conf -e
+}
+
 _alias	mm		less +F /var/log/system.log
 _alias	fsi		mono /usr/lib/fsharp/fsi.exe
 _alias	fsc		mono /usr/lib/fsharp/fsc.exe
 _alias	dtrace		sudo dtrace
 _alias	truss		sudo dtruss -f sudo -u proger
 _alias	pg		'ps -ef | g'
-_alias	gentags		/usr/local/Cellar/ctags/5.8/bin/ctags -R --format=2
+_alias	gentags		ctags -R
 _alias	lsof		sudo lsof
