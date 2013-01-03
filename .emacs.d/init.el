@@ -6,6 +6,7 @@
 (add-to-list 'load-path dotfiles-dir)
 
 (require 'funs)
+(require 'packages)
 
 ;; keybindings
 
@@ -24,6 +25,9 @@
 (global-set-key (kbd "<M-backspace>") 'my-backward-kill-word)
 (global-set-key (kbd "C-;") 'kill-whole-line)
 (global-set-key (kbd "C-'") (lambda () (interactive) (next-line) (join-line)))
+
+(global-set-key (kbd "C-v") 'View-scroll-page-forward)
+(global-set-key (kbd "M-v") 'View-scroll-page-backward)
 
 (global-set-key (kbd "C-q") 'set-mark-command)
 (global-set-key (kbd "C-x C-q") 'pop-global-mark)
@@ -46,6 +50,9 @@
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
 (add-hook 'ibuffer-mode-hook (lambda () (define-key ibuffer-mode-map (kbd "M-o") 'other-window))) ; was ibuffer-visit-buffer-1-window
 
+(global-set-key (kbd "C-x C-c") 'kill-this-buffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; look
@@ -67,33 +74,7 @@
   (global-hl-line-mode 1)
 
   (load "server")
-  (unless (server-running-p) (server-start))
-
-  (global-set-key (kbd "C-x C-c") 'kill-this-buffer)
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
-  )
-
-;; packages
-
-(defvar my-packages
-  '(evil
-    anything
-    color-theme-solarized color-theme-sanityinc-solarized nyan-mode rainbow-mode rainbow-delimiters
-    erlang haskell-mode
-    clojure-mode nrepl))
-
-(require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
-
-(when (not package-archive-contents) (package-refresh-contents))
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+  (unless (server-running-p) (server-start)))
 
 ;; settings
 
@@ -102,39 +83,41 @@
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
 
-(setq visible-bell t
-      echo-keystrokes 0.1
-     ;font-lock-maximum-decoration t
-      inhibit-startup-message t
-      transient-mark-mode t
-      color-theme-is-global t
-      shift-select-mode nil
-      mouse-yank-at-point t
-      kill-whole-line t
-      require-final-newline t
-      truncate-partial-width-windows nil
-      uniquify-buffer-name-style 'forward
-      whitespace-style '(trailing lines space-before-tab indentation space-after-tab)
-      whitespace-line-column 100
-      ediff-window-setup-function 'ediff-setup-windows-plain
-      
-      xterm-mouse-mode t
-      x-select-enable-clipboard t
-      custom-safe-themes t
-      ring-bell-function 'ignore
+(setq
+ visible-bell t
+ echo-keystrokes 0.1
+										;font-lock-maximum-decoration t
+ inhibit-startup-message t
+ transient-mark-mode t
+ color-theme-is-global t
+ shift-select-mode nil
+ mouse-yank-at-point t
+ kill-whole-line t
+ require-final-newline t
+ truncate-partial-width-windows nil
+ uniquify-buffer-name-style 'forward
+ whitespace-style '(trailing lines space-before-tab indentation space-after-tab)
+ whitespace-line-column 100
+ ediff-window-setup-function 'ediff-setup-windows-plain
+ 
+ xterm-mouse-mode t
+ x-select-enable-clipboard t
+ custom-safe-themes t
+ ring-bell-function 'ignore
 
-      delete-old-versions t
+ delete-old-versions t
 
-      ;; scroll two lines at a time (less "jumpy" than defaults)
-      mouse-wheel-scroll-amount '(2 ((shift) . 2)) ;; one line at a time  
-      mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
-      mouse-wheel-follow-mouse t ;; scroll window under mouse
-      scroll-step 1 ;; keyboard scroll one line at a time
-     ;scroll-margin 7
-     ;scroll-conservatively 2
-      next-screen-context-lines 15
-      which-function-mode t
-      )
+ ;; scroll two lines at a time (less "jumpy" than defaults)
+;mouse-wheel-scroll-amount '(2 ((shift) . 2)) ;; one line at a time  
+;mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+;mouse-wheel-follow-mouse t ;; scroll window under mouse
+ scroll-step 1 ;; keyboard scroll one line at a time
+; redisplay-dont-pause t
+ scroll-margin 5
+; scroll-conservatively 10000
+;next-screen-context-lines 15
+ which-function-mode t
+ )
 
 (setq-default
  major-mode 'text-mode          ;; default mode
@@ -147,7 +130,6 @@
  left-fringe-width 0            ;; no need for left fringe
  scroll-up-aggressively 0.01    ;; smooth scrolling
  scroll-down-aggressively 0.01)
-
 
 (rainbow-mode t)
 (rainbow-delimiters-mode t)
