@@ -5,7 +5,10 @@
   '(evil
     anything
     nyan-mode rainbow-mode rainbow-delimiters
-    erlang haskell-mode clojure-mode nrepl))
+    erlang haskell-mode clojure-mode nrepl
+	auto-complete
+	magit ack
+	minimap))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -19,5 +22,16 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(require 'erlang-start)
+(add-hook 'erlang-mode-hook (lambda ()
+							  (local-set-key [return] 'newline-and-indent)))
+
+(require 'auto-complete-config)
+(ac-config-default)
+(ac-set-trigger-key "TAB")
+(setq ac-auto-start nil)
+
+(require 'minimap)
 
 (provide 'packages)

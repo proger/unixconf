@@ -4,9 +4,11 @@
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path (format "%s/%s" dotfiles-dir "project-root"))
 
 (require 'funs)
 (require 'packages)
+(require 'project-root)
 
 ;; keybindings
 
@@ -50,8 +52,11 @@
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
 (add-hook 'ibuffer-mode-hook (lambda () (define-key ibuffer-mode-map (kbd "M-o") 'other-window))) ; was ibuffer-visit-buffer-1-window
 
-(global-set-key (kbd "C-x C-c") 'kill-this-buffer)
+(global-set-key (kbd "C-x C-c") (lambda () (interactive) (kill-this-buffer) (ibuffer)))
+(global-set-key (kbd "C-c C-c") (lambda () (interactive) (kill-this-buffer) (delete-window)))
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+(global-set-key (kbd "C-x t") 'magit-status)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -108,9 +113,9 @@
  delete-old-versions t
 
  ;; scroll two lines at a time (less "jumpy" than defaults)
-;mouse-wheel-scroll-amount '(2 ((shift) . 2)) ;; one line at a time  
-;mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
-;mouse-wheel-follow-mouse t ;; scroll window under mouse
+ mouse-wheel-scroll-amount '(2 ((shift) . 2)) ;; one line at a time  
+ mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+ mouse-wheel-follow-mouse t ;; scroll window under mouse
  scroll-step 1 ;; keyboard scroll one line at a time
 ; redisplay-dont-pause t
  scroll-margin 5
@@ -129,9 +134,57 @@
  tab-width 4
  left-fringe-width 0            ;; no need for left fringe
  scroll-up-aggressively 0.01    ;; smooth scrolling
- scroll-down-aggressively 0.01)
+ scroll-down-aggressively 0.01
+ )
 
-(rainbow-mode t)
-(rainbow-delimiters-mode t)
-(ido-mode t)
+(global-rainbow-delimiters-mode)
+(global-subword-mode)
 (nyan-mode t)
+
+(ido-mode t)
+(setq
+ ido-enable-flex-matching t
+ ido-show-dot-for-dired t
+ ido-auto-merge-work-directories-length -1 ; disable auto-merging
+ ido-confirm-unique-completion t
+ ido-ignore-files '("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"
+                    "\\.pyc$" "\\.6$" "\\.o$"))
+(defalias 'list-buffers 'ido-switch-buffer)
+
+(global-set-key (kbd "C-c p f") 'project-root-find-file)
+(global-set-key (kbd "C-c p g") 'project-root-grep)
+(global-set-key (kbd "C-c p a") 'project-root-ack)
+(global-set-key (kbd "C-c p d") 'project-root-goto-root)
+(global-set-key (kbd "C-c p p") 'project-root-run-default-command)
+(global-set-key (kbd "C-c p l") 'project-root-browse-seen-projects)
+
+(global-set-key (kbd "C-c p M-x")
+                'project-root-execute-extended-command)
+
+(setq project-roots
+	  `(("Generic git project"
+                    :root-contains-files (".git"))))
+
+(global-set-key
+ (kbd "C-c p v")
+ (lambda ()
+   (interactive)
+   (with-project-root
+       (let ((root (cdr project-details)))
+         (cond
+           ((file-exists-p ".svn")
+            (svn-status root))
+           ((file-exists-p ".git")
+            (git-status root))
+           (t
+            (vc-directory root nil)))))))
+
+;; dired
+(setq
+ dired-bind-jump nil
+ dired-omit-extensions '(".pyc" ".elc"))
+(autoload 'dired-jump "dired-x" "Jump to dir of current file" t)
+(autoload 'dired-omit-mode "dired-x" "Omit unnecessary files in dired view" t)
+(add-hook 'dired-mode-hook 'dired-omit-mode)
+;(eval-after-load "dired"
+;  '(define-key dired-mode-map (kbd "C-,") (fun-for-bind bs--show-with-configuration "dired")))
