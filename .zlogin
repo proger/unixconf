@@ -1,15 +1,16 @@
-#stty status '^T'
+stty status '^T'
 
 export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
-export PATH=$PATH:$HOME/.cabal/bin
+#export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/Library/Haskell/bin
+
+#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
 
 #export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
 #export PATH=$PATH:$HOME/local/mongo/bin
 #
-export PATH=$PATH:/usr/gnu/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin
-export PATH=$PATH:/Developer/usr/bin
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+#export PATH=$PATH:/Developer/usr/bin
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 export PATH=$PATH:/usr/texbin
 export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
@@ -25,10 +26,13 @@ export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
 
-export PAGER=$(which less)
-export LESSCHARSET=utf-8
+#export EDITOR=/usr/local/bin/vim
+#export PAGER=/usr/bin/less
 
 export EDITOR=/usr/bin/vim
+#export EDITOR=/usr/bin/emacs
+#export PAGER=/bin/less
+#export LESSCHARSET=utf-8
 
 #export LANG=en_US.UTF-8
 #unset LC_ALL
@@ -65,14 +69,15 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 # mkdir -p ~/.ant/lib
 # ln -s /usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/ant/lib/flexTasks.jar
 
-if [ ! -f /proc/version ]; then # stupid os check
-	export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-	export JAVA_VERSION=CurrentJDK
+#export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_10.jdk/Contents/Home
+#export JAVA_VERSION=CurrentJDK
 
-	export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
-fi
-
+export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export COPYFILE_DISABLE=true
+
+export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec

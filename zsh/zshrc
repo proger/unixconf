@@ -78,6 +78,7 @@ _alias	qemul64		qemu-system-x86_64 -nographic -serial telnet::4444,server
 
 _alias	htmlesc		'perl -pi -e '\''s/\<[^\>]*\>//g'\'
 _alias	compute		'while true; do head -n 100 /dev/urandom; sleep .1; done | hexdump -C | grep "ca fe"'
+_alias	rainbow		'yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 _alias	randip		jot -r -s "." 4 1 255
 _alias	pics		'feh (*/)#^*-s.*(.)'
 
@@ -90,6 +91,8 @@ _alias	ck		sha512sum
 _alias	xmlp		tidy -xml -q --escape-cdata y
 
 _alias	rtmp		rtmpdump -o /dev/null -V -v -r
+
+_alias	fabh		fab -w --abort-on-prompts --linewise -H
 
 clean() {
 	export PS1="%% "

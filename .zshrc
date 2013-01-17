@@ -1,7 +1,9 @@
 source ~/.unixconf/zsh/zshrc
-#source ~/.unixconf/zsh/zshrc.osx
+source ~/.unixconf/zsh/zshrc.osx
 #source ~/.unixconf/zsh/zshrc.bsd
-source ~/.unixconf/zsh/zshrc.linux
-#source ~/.unixconf/zsh/zshrc.solaris
+#source ~/.unixconf/zsh/zshrc.linux
 
-[ -f ~/.ssh_agent ] && source ~/.ssh_agent
+source ~/.zshrc.private
+
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

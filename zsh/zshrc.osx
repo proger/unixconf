@@ -30,6 +30,7 @@ preap_all() {
 
 nat() {
 	sudo sysctl -w net.inet.ip.forwarding=1
+	grep nat /etc/pf.conf
 	sudo pfctl -f /etc/pf.conf -e
 }
 
@@ -37,7 +38,17 @@ _alias	mm		less +F /var/log/system.log
 _alias	fsi		mono /usr/lib/fsharp/fsi.exe
 _alias	fsc		mono /usr/lib/fsharp/fsc.exe
 _alias	dtrace		sudo dtrace
-_alias	truss		sudo dtruss -f sudo -u proger
+_alias	truss		sudo dtruss -f sudo -u $USER
 _alias	pg		'ps -ef | g'
 _alias	gentags		ctags -R
 _alias	lsof		sudo lsof
+
+_alias	perlenv		source $HOME/perl5/perlbrew/etc/bashrc
+
+_alias	hls		env NOTRAP=1 ~/ss/streaming/utils/hls-dump.sh
+
+_alias	vim		echo come on
+
+e() {
+	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -a ~/Applications/Emacs.app $*
+}

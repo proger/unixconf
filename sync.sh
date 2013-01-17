@@ -52,14 +52,7 @@ CONF_NETBSD="
 ../etc/mk.conf
 "
 
-CONF_EMACS="
-.emacs.d/init.el
-.emacs.d/funs.el
-.emacs.d/packages.el
-.emacs.d/naquadah-theme.el
-"
-
-CONF_ALL="$CONF_ESSENTIAL $CONF_X11 $CONF_DEV $CONF_EMACS"
+CONF_ALL="$CONF_ESSENTIAL $CONF_X11 $CONF_DEV"
 
 DIST=`dirname $0`
 ABSDIST=`(cd $DIST; pwd)`
