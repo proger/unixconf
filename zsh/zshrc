@@ -52,7 +52,7 @@ _alias	fs		fossil
 _alias	rsync		rsync -hv --progress
 
 _alias	gdb		gdb -q
-_alias	py		ipython
+_alias	py		ipython --no-banner
 _alias	pipi		pip install --install-option="--prefix=$HOME/.local"
 _alias	hs		ghci
 _alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
