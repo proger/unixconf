@@ -21,7 +21,7 @@ pstack() {
 
 preap_all() {
 	ps -e -o pid,ppid,xstat,comm \
-		| awk '$3 != 0 && $4 ~ /\(.*\)$/ {
+		| awk '$3 != 0 && $4 ~ /^\(/ {
 			printf "(printf \"call (int)waitpid(%d, 0, 1)\\nquit\\n\"; cat /dev/zero) | gdb -q $(ps -o comm= -p %d) %d\n",
 					$1, $2, $2; 
 		       }' \
@@ -34,10 +34,9 @@ nat() {
 	sudo pfctl -f /etc/pf.conf -e
 }
 
+_alias	tmux		tmux -2
+
 _alias	mm		less +F /var/log/system.log
-_alias	fsi		mono /usr/lib/fsharp/fsi.exe
-_alias	fsc		mono /usr/lib/fsharp/fsc.exe
-_alias	dtrace		sudo dtrace
 _alias	truss		sudo dtruss -f sudo -u $USER
 _alias	pg		'ps -ef | g'
 _alias	gentags		ctags -R
@@ -47,8 +46,10 @@ _alias	perlenv		source $HOME/perl5/perlbrew/etc/bashrc
 
 _alias	hls		env NOTRAP=1 ~/ss/streaming/utils/hls-dump.sh
 
-_alias	vim		echo come on
-
 e() {
-	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -a ~/Applications/Emacs.app $*
+	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -na /Applications/Emacs.app $*
+}
+
+e!() {
+	open -na /Applications/Emacs.app $*
 }
