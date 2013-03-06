@@ -34,6 +34,10 @@ nat() {
 	sudo pfctl -f /etc/pf.conf -e
 }
 
+iphones() {
+	system_profiler SPUSBDataType | awk -v p=0 '/(iPad|iPhone):/ { p=1; } p && $0 ~ /^$/ { p++; if (p > 2) exit(0); } p'
+}
+
 _alias	tmux		tmux -2
 
 _alias	mm		less +F /var/log/system.log
