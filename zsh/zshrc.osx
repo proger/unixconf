@@ -45,6 +45,7 @@ _alias	truss		sudo dtruss -f sudo -u $USER
 _alias	pg		'ps -ef | g'
 _alias	gentags		ctags -R
 _alias	lsof		sudo lsof
+_alias	lock		open -a /System/Library/Frameworks/ScreenSaver.framework//Versions/A/Resources/ScreenSaverEngine.app
 
 _alias	perlenv		source $HOME/perl5/perlbrew/etc/bashrc
 
