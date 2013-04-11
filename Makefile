@@ -22,13 +22,14 @@ all: deploy deploy-vim
 deploy:
 	$(foreach file,$(FILES),ln -sf $(PWD)/$(file) ~/;)
 
-vimrc_repo= git@github.com:proger/vimrc.git
+vimrc_repo?= git@github.com:proger/vimrc.git
 deploy-vim:
 	-cd ~; git clone $(vimrc_repo) .vim
 	cd ~/.vim; git pull --rebase; $(MAKE)
 
 USER?= proger
 osx-fixtank:
+	mount -uw /
 	launchctl load /System/Library/LaunchDaemons/com.apple.opendirectoryd.plist
 	dscl . /Users/$(USER) -change NFSHomeDirectory /Users/$(USER) /tank/$(USER)
 	mv Users tank
