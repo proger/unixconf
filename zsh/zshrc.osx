@@ -51,10 +51,14 @@ _alias	perlenv		source $HOME/perl5/perlbrew/etc/bashrc
 
 _alias	hls		env NOTRAP=1 ~/ss/streaming/utils/hls-dump.sh
 
-e() {
-	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -na /Applications/Emacs.app $*
-}
+#e() {
+#	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -na /Applications/Emacs.app $*
+#}
+#
+#e!() {
+#	open -na /Applications/Emacs.app $*
+#}
 
-e!() {
-	open -na /Applications/Emacs.app $*
-}
+alias emacs="/usr/local/bin/emacsclient -ct"
+alias e="/usr/local/bin/emacsclient -ct"
+alias es="/usr/local/bin/emacs --daemon"
