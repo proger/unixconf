@@ -14,6 +14,7 @@ FILES= \
 	.muttrc \
 	.plan \
 	.profile \
+	.tmux.conf \
 	.zlogin \
 	.zshrc
 
