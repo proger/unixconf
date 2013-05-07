@@ -22,6 +22,7 @@ all: deploy deploy-vim
 
 deploy:
 	$(foreach file,$(FILES),ln -sf $(PWD)/$(file) ~/;)
+	ln -sf $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/
 
 vimrc_repo?= git@github.com:proger/vimrc.git
 deploy-vim:
