@@ -1,39 +1,32 @@
-stty status '^T'
+stty status '^T' # bsd only
 
 export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
 export PATH=$PATH:$HOME/.cabal/bin
 
-#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
-
-#export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
-#export PATH=$PATH:$HOME/local/mongo/bin
+export PATH=$PATH:/usr/local/share/npm/bin
 
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
-#export PATH=$PATH:/Developer/usr/bin
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
-export PATH=$PATH:/usr/texbin
-export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
+#export PATH=$PATH:/usr/texbin
+#export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
 
+## openbsd/netbsd/historical:
 #export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 #export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
-
 #export PATH=$PATH:/usr/X11R7/bin:/usr/pkg/bin:/usr/pkg/sbin
 #export PATH=$PATH:/usr/pkg/qt4/bin:/usr/games
-
+#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
+#export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
+#export PATH=$PATH:$HOME/local/mongo/bin
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/objc/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/llvm/Debug+Asserts/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
 
-#export EDITOR=/usr/local/bin/vim
-#export PAGER=/usr/bin/less
-
 export EDITOR=/usr/bin/vim
-#export EDITOR=/usr/bin/emacs
-#export PAGER=/bin/less
+#
 #export LESSCHARSET=utf-8
-
 #export LANG=en_US.UTF-8
 #unset LC_ALL
 #unset LC_CTYPE
@@ -58,8 +51,6 @@ export HISTFILE=$HOME/.zshistory
 # for ksh
 #export ENV=$HOME/.kshrc
 
-#export ERL_LIBS=$HOME/dev/erlzmq2/ebin
-
 export PYTHONPATH=$HOME/local/python:$HOME/.local/lib/python2.7/site-packages
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
@@ -71,13 +62,10 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 #export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_33-b03-424.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_10.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7..k/Contents/Home
 #export JAVA_VERSION=CurrentJDK
 
 export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 export COPYFILE_DISABLE=true
-
-export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
+#export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec

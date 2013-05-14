@@ -24,7 +24,7 @@ _alias	up		'source ~/.zlogin && source ~/.zshrc'
 _alias	ll		ls -lhFG
 _alias	la		ll -as
 _alias	lt		ll -ut
-#_alias	lld		ls -lhF -cr
+#_alias	lld		ll -cr
 _alias	lld		ll -tr
 _alias	lf		ls -f
 _alias	.		pwd
@@ -45,8 +45,6 @@ _alias	grab		sudo chown -R $USER
 
 _alias	g		egrep --color -i
 #_alias	g		pcregrep -i --color
-_alias	a		ack -au --nobinary
-_alias	ackmi		ack --ignore-dir=arch
 
 _alias	fs		fossil
 _alias	rsync		rsync -hv --progress
@@ -71,7 +69,6 @@ _alias	vnc		vncviewer -compresslevel 9 -quality 1 -bgr233
 _alias	xd		'export DISPLAY=:0.0; xset dpms force on'
 _alias	koi		luit -encoding 'KOI8-R' --
 _alias	dict		sdcv --utf8-output
-_alias	fpc		~/local/fpc64/bin/fpc
 
 _alias	qemul		qemu -nographic -serial telnet::4444,server
 _alias	qemul64		qemu-system-x86_64 -nographic -serial telnet::4444,server
@@ -85,7 +82,6 @@ _alias	pics		'feh (*/)#^*-s.*(.)'
 _alias	pg		'ps axuww | g'
 #_alias  vim             emacs
 
-#_alias	ck		sha256sum
 _alias	ck		sha512sum
 
 _alias	xmlp		tidy -xml -q --escape-cdata y
@@ -103,18 +99,6 @@ mkcd() {
 	mkdir $1
 	echo $1
 	cd $1
-}
-
-svndiff() {
-	svn diff $* | vim -R -
-}
-
-gitdiff() {
-	git diff $* | vim -R -
-}
-
-cvsdiff() {
-	cvs diff $* | vim -R -
 }
 
 cs() {
@@ -138,12 +122,12 @@ authcopy() {
 }
 
 vim() {
-	[ $# -eq 1 -a X"${1%%:*}" != X"$1" ] && {
+	if [ $# -eq 1 -a X"${1%%:*}" != X"$1" ]; then
 		# split /path/to/file/file.c:12345 to vim args
 		command $0 `echo $1 | awk -F: '{print $1, "+"$2}'`
-	} || {
+	else
 		command $0 $*
-	}
+	fi
 }
 
 ex() {
@@ -375,7 +359,7 @@ zstyle ':completion:*:manuals' separate-sections true
 
 # cc
 compctl -/g "*.[cCoa]" -x 's[-I]' -/ - \
-	's[-l]' -s '${(s.:.)^LD_LIBRARY_PATH}/lib*.a(:t:r:s/lib//)' -- cc gcc g++
+	's[-l]' -s '${(s.:.)^LD_LIBRARY_PATH}/lib*.a(:t:r:s/lib//)' -- cc gcc g++ c++ clang clang++
 
 # colors!
 #export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
