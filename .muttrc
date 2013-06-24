@@ -7,11 +7,7 @@ set	envelope_from	= yes
 set	signature	= '~/.signature'
 
 #alternates	proger@wilab.org.ua
-alternates	proger@uaoug.org.ua
 alternates	proger@hackndev.com
-alternates	proger@codeneedle.com
-alternates	darkproger@gmail.com
-alternates	vladimir@kirillov.im
 
 set	mbox		= "!"
 set	folder		= /home/proger/mail
