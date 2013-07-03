@@ -31,7 +31,7 @@ _alias	.		pwd
 _alias	..		cd ..
 _alias	df		df -h
 _alias	du		du -h
-_alias	md		mkdir -p
+#_alias	md		mkdir -p
 _alias	rd		rm -ri
 _alias	rm		rm -i
 _alias	mv		mv -i

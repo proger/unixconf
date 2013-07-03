@@ -24,7 +24,7 @@ export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
 
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 #
 #export LESSCHARSET=utf-8
 #export LANG=en_US.UTF-8
