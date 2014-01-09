@@ -13,7 +13,8 @@
 	l  = log -u --name-status --stat --summary --color
 	lo = log --format=oneline
 	lg = log --graph --decorate --pretty=oneline --abbrev-commit
-	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%aE>%Creset' --abbrev-commit --date=local --all
+	lgg = log --graph --pretty=format:'%C(yellow)%h%Creset %d %s %Cgreen(%cr)%Creset %C(blue)%an%Creset' --date=relative
+	lggg = log --graph --decorate --date=relative --abbrev-commit --pretty=oneline
 	lp = log -p
 	head = log -1 HEAD
 	up = pull --rebase
@@ -33,3 +34,5 @@
 
 [push]
 	default = tracking
+[credential]
+	helper = osxkeychain
