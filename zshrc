@@ -90,6 +90,10 @@ _alias	rtmp		rtmpdump -o /dev/null -V -v -r
 
 _alias	fabh		fab -w --abort-on-prompts --linewise -H
 
+_alias	wow		git status
+_alias	very		git
+_alias	such		git
+
 clean() {
 	export PS1="%% "
 	unset RPS1
