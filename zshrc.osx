@@ -38,6 +38,11 @@ iphones() {
 	system_profiler SPUSBDataType | awk -v p=0 '/(iPad|iPhone):/ { p=1; } p && $0 ~ /^$/ { p++; if (p > 2) exit(0); } p'
 }
 
+enable_sharing() {
+	sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
+	sudo launchctl load /System/Library/LaunchDaemons/com.apple.screensharing.plist
+}
+
 _alias	tmux		tmux -2
 
 _alias	mm		less +F /var/log/system.log
