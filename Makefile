@@ -41,7 +41,7 @@ USER?= proger
 osx-fixtank:
 	mount -uw /
 	launchctl load /System/Library/LaunchDaemons/com.apple.opendirectoryd.plist
-	dscl . /Users/$(USER) -change NFSHomeDirectory /Users/$(USER) /tank/$(USER)
+	dscl localonly -change /Local/Default/Users/$(USER) NFSHomeDirectory /Users/$(USER) /tank/$(USER)
 	mv Users tank
 	ln -s tank Users
 

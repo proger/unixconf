@@ -404,7 +404,7 @@ ps1_vcs() {
 
 parent=$(basename ${$(ps -o comm= -p $PPID)#-})
 case $parent in
-	xterm|urxvt|tmux|sshd|sudo|login|gnome*) parent="";;
+	xterm|urxvt|tmux|sshd|sshd:*|sudo|login|gnome*) parent="";;
 	*) parent="${RED}$parent ";;
 esac
 
