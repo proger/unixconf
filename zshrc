@@ -405,12 +405,12 @@ ps1_vcs() {
 parent=$(basename ${$(ps -o comm= -p $PPID)#-})
 case $parent in
 	xterm|urxvt|tmux|sshd|sshd:*|sudo|login|gnome*) parent="";;
-	*) parent="${RED}$parent ";;
+	*) parent="${CYAN}${parent}${NOCOLOR} ";;
 esac
 
 case ${USER:-$LOGNAME} in
 	proger|root) user="";;
-	*) user=" ${CYAN}%n ";;
+	*) user=" ${GREEN}%n ";;
 esac
 
 #export	PS1="$parent${white}%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "

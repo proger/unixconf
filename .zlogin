@@ -1,28 +1,33 @@
 stty status '^T' # bsd only
 
-export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
-export PATH=$PATH:$HOME/.cabal/bin
 
-export PATH=$PATH:/usr/local/share/npm/bin
+if [[ -o login ]]; then
+	export PATH=$HOME/local/bin:$HOME/.local/bin:$HOME/local/ruby/bin
+	export PATH=$PATH:$HOME/.cabal/bin
 
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin
-export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
-#export PATH=$PATH:/usr/texbin
-#export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
+	export PATH=$PATH:/usr/local/share/npm/bin
 
-## openbsd/netbsd/historical:
-#export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
-#export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
-#export PATH=$PATH:/usr/X11R7/bin:/usr/pkg/bin:/usr/pkg/sbin
-#export PATH=$PATH:/usr/pkg/qt4/bin:/usr/games
-#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
-#export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
-#export PATH=$PATH:$HOME/local/mongo/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/objc/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/llvm/Debug+Asserts/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
+	export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+	export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+	export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
+	#export PATH=$PATH:/usr/texbin
+	#export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
+
+	## openbsd/netbsd/historical:
+	#export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
+	#export PATH=$PATH:/usr/local/lib/qt4/bin:/usr/local/jdk-1.7.0/bin
+	#export PATH=$PATH:/usr/X11R7/bin:/usr/pkg/bin:/usr/pkg/sbin
+	#export PATH=$PATH:/usr/pkg/qt4/bin:/usr/games
+	#export PATH=$PATH:/Developer/Marmalade/5.1/s3e/bin
+	#export PATH=$PATH:$HOME/dev/llvm/Debug+Asserts/bin
+	#export PATH=$PATH:$HOME/local/mongo/bin
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/objc/lib
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/llvm/Debug+Asserts/lib
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/dev/mongo-c-driver
+
+	if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then source $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+fi
 
 export EDITOR=vim
 #
@@ -69,3 +74,4 @@ export HAXE_LIBRARY_PATH=/usr/local/share/haxe/std
 
 export COPYFILE_DISABLE=true
 #export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
+
