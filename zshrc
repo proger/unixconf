@@ -53,7 +53,7 @@ _alias	gdb		gdb -q
 _alias	py		ipython --no-banner
 _alias	pipi		pip install --install-option="--prefix=$HOME/.local"
 _alias	hs		ghci
-_alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
+#_alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
 _alias	ljdb		java -cp /usr/lib/jline/jline.jar:/usr/lib/jvm/java-6-openjdk/lib/tools.jar jline.ConsoleRunner com.sun.tools.example.debug.tty.TTY
 
 _alias	ifconfig	sudo ifconfig
