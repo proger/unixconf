@@ -27,6 +27,7 @@ deploy:
 	#
 	install -d ~/local/bin
 	ln -sf $(PWD)/bin/unzipq ~/local/bin/
+	ln -sf $(PWD)/bin/getplaylist ~/local/bin/
 	#
 	install -d ~/.lein
 	ln -sf $(PWD)/lein/leinrc ~/.lein/
