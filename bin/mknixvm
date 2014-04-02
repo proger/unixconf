@@ -1,0 +1,59 @@
+#!/bin/sh -x
+#
+# Configurables:
+#
+#  - Disk size is in GB
+#  - Memory size is in MB
+#  - SSH port is the local forwarded port to the VM:22
+#
+disksize="32"
+memsize="1024"
+sshport="8322"
+vmname="nixos"
+image="$HOME/Downloads/nixos-minimal-13.10.35668.599a567-x86_64-linux.iso"
+imageprefix="nix"
+
+vboxdir=$(VBoxManage list systemproperties \
+            | awk '/^Default.machine.folder/ { print $4 }')
+
+mkdir -p "${vboxdir}/${vmname}"
+test -f ${image} || exit 1
+
+#
+# Create VirtualBox VM
+#
+echo "Creating/Updating Virtual Machine"
+VBoxManage showvminfo "${vmname}" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    # VM already exists, just update the ISO image
+    VBoxManage storageattach "${vmname}" --storagectl "IDE Controller" \
+      --port 1 --device 0 --type dvddrive \
+      --medium "$image"
+else
+    # Create the VM
+    VBoxManage createvm --name "${vmname}" --ostype OpenSolaris_64 --register
+    VBoxManage storagectl "${vmname}" --name "IDE Controller" --add ide
+
+    # Attach the ISO image
+    VBoxManage storageattach "${vmname}" --storagectl "IDE Controller" \
+      --port 1 --device 0 --type dvddrive \
+      --medium "$image"
+
+    # Create and attach the zone disk
+    VBoxManage createhd --filename "${vboxdir}/${vmname}/${imageprefix}-zones.vdi" \
+      --size $(echo "${disksize}*1024" | bc)
+    VBoxManage storageattach "${vmname}" --storagectl "IDE Controller" \
+      --port 0 --device 0 --type hdd \
+      --medium "${vboxdir}/${vmname}/${imageprefix}-zones.vdi"
+
+    # Set misc settings
+    VBoxManage modifyvm "${vmname}" --boot1 dvd --boot2 disk --boot3 none
+    VBoxManage modifyvm "${vmname}" --memory ${memsize}
+    VBoxManage modifyvm "${vmname}" --natpf1 "SSH,tcp,,${sshport},,22"
+fi
+
+#
+# Start it up
+#
+echo "Starting Virtual Machine"
+VirtualBox --startvm "${vmname}" --headless &

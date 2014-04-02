@@ -94,6 +94,8 @@ _alias	wow		git status
 _alias	very		git
 _alias	such		git
 
+_alias	nix-build-remote	env NIX_CURRENT_LOAD=/tmp/load1 NIX_BUILD_HOOK=$HOME/.nix-profile/libexec/nix/build-remote.pl NIX_REMOTE_SYSTEMS=${NIX_REMOTE_SYSTEMS:-$HOME/remote-systems.conf} nix-build
+
 clean() {
 	export PS1="%% "
 	unset RPS1
@@ -234,6 +236,15 @@ zz() {
 	echo $*
 	$* >& /dev/null &!
 }
+
+ansibleout() {
+	local dir="$1"
+	for f in $dir/*; do
+		json -a -C stdout stderr < $f > $f.out;
+		echo $f.out;
+	done
+}
+
 
 # suffix aliases
 alias -s {jpg,jpeg,png,gif,tiff,bmp}='feh'

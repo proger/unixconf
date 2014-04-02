@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env make -f -
 
 FILES= \
 	.bashrc \
@@ -28,6 +28,8 @@ deploy:
 	install -d ~/local/bin
 	ln -sf $(PWD)/bin/unzipq ~/local/bin/
 	ln -sf $(PWD)/bin/getplaylist ~/local/bin/
+	ln -sf $(PWD)/bin/mknixvm  ~/local/bin/
+	ln -sf $(PWD)/bin/tm  ~/local/bin/
 	#
 	install -d ~/.lein
 	ln -sf $(PWD)/lein/leinrc ~/.lein/
