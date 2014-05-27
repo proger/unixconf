@@ -245,6 +245,13 @@ ansibleout() {
 	done
 }
 
+gpgwho() {
+	local filename="$1"
+	gpg --batch --decrypt --list-only --status-fd 1 "$filename" 2>/dev/null \
+		| awk '/ENC_TO/ {print $3}' \
+		| xargs -t -n1 gpg --list-keys
+}
+
 
 # suffix aliases
 alias -s {jpg,jpeg,png,gif,tiff,bmp}='feh'
