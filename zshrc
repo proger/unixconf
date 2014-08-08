@@ -50,7 +50,7 @@ _alias	fs		fossil
 _alias	rsync		rsync -hv --progress
 
 _alias	gdb		gdb -q
-_alias	py		ipython --no-banner
+_alias	py		ipython --no-banner --no-confirm-exit
 _alias	pipi		pip install --install-option="--prefix=$HOME/.local"
 _alias	hs		ghci
 #_alias	ocaml		ledit -x -h ~/.ocamlhist ocaml
@@ -222,7 +222,7 @@ graph() {
 	local arg="${argv[3, -1]}"
 	local file="`basename $2`.png"
 	$1 -Tpng "$2" $arg > "$file"
-	feh "$file"
+	open "$file"
 }
 
 agent() {
