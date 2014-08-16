@@ -94,7 +94,6 @@ _alias	wow		git status
 _alias	very		git
 _alias	such		git
 
-_alias	nix-build-remote	env NIX_CURRENT_LOAD=/tmp/load1 NIX_BUILD_HOOK=$HOME/.nix-profile/libexec/nix/build-remote.pl NIX_REMOTE_SYSTEMS=${NIX_REMOTE_SYSTEMS:-$HOME/remote-systems.conf} nix-build
 
 clean() {
 	export PS1="%% "
@@ -250,6 +249,11 @@ gpgwho() {
 	gpg --batch --decrypt --list-only --status-fd 1 "$filename" 2>/dev/null \
 		| awk '/ENC_TO/ {print $3}' \
 		| xargs -t -n1 gpg --list-keys
+}
+
+nix-prefetch-git-here() {
+	$(nix-instantiate --eval -E '<nixpkgs>')/pkgs/build-support/fetchgit/nix-prefetch-git file://$(pwd) 2>&1 \
+		| awk '/^git revision is/ { print "    rev = \""$4"\";"; } /^hash is/ {print "    sha256 = \""$3"\";"; }'
 }
 
 
