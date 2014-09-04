@@ -436,7 +436,9 @@ case ${USER:-$LOGNAME} in
 esac
 
 #export	PS1="$parent${white}%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
-export	PS1="$parent%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
+#export	PS1="$parent%m$user%(0?.. ${red}%? )${GRAY}%#$NOCOLOR "
+#export	PS1="$parent%m$user%(0?..${red}%?)${GRAY}:$NOCOLOR "
+export	PS1="$parent$user%(0?..${red}%? )${GRAY}%#$NOCOLOR "
 export	PS2="%_> "
 export	RPS1="%(1j.${green}j%j${NOCOLOR}.) ${blue}%3~\$(ps1_vcs)$NOCOLOR"
 #export	RPS1="%(1j.${green}j%j${NOCOLOR}.)"
