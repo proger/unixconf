@@ -7,7 +7,6 @@ tags
 *.swp
 *.jar
 *.class
-*.app
 **/xcuserdata/*
 *.xcuserdatad
 *.xcuserstate
@@ -20,3 +19,14 @@ erl_crash.dump
 .eunit
 CVS/
 .rebarinfo
+/dist/
+qa-config
+*.lo
+*.la
+stamp-h1
+.deps/
+.libs/
+config.log
+config.status
+Makefile.in
+autom4te.cache/
