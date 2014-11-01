@@ -20,7 +20,6 @@ erl_crash.dump
 CVS/
 .rebarinfo
 /dist/
-qa-config
 *.lo
 *.la
 stamp-h1
@@ -32,3 +31,4 @@ Makefile.in
 autom4te.cache/
 *.dyn_o
 *.dyn_hi
+*.hi

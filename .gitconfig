@@ -31,6 +31,7 @@
 
 [diff]
 	renames = true
+	external = git-patdiff
 
 [push]
 	default = tracking

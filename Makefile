@@ -30,6 +30,7 @@ deploy:
 	ln -sf $(PWD)/bin/getplaylist ~/local/bin/
 	ln -sf $(PWD)/bin/mknixvm  ~/local/bin/
 	ln -sf $(PWD)/bin/tm  ~/local/bin/
+	ln -sf $(PWD)/bin/git-patdiff  ~/local/bin/
 	#
 	install -d ~/.lein
 	ln -sf $(PWD)/lein/leinrc ~/.lein/
