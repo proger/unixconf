@@ -431,7 +431,7 @@ case $parent in
 esac
 
 case ${USER:-$LOGNAME} in
-	proger|root) user="";;
+	vladki|proger|root) user="";;
 	*) user=" ${GREEN}%n ";;
 esac
 

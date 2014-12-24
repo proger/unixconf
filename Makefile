@@ -23,18 +23,12 @@ all: deploy deploy-vim
 deploy:
 	$(foreach file,$(FILES),ln -sf $(PWD)/$(file) ~/;)
 	#
-	ln -sf $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/
-	#
 	install -d ~/local/bin
 	ln -sf $(PWD)/bin/unzipq ~/local/bin/
 	ln -sf $(PWD)/bin/getplaylist ~/local/bin/
 	ln -sf $(PWD)/bin/mknixvm  ~/local/bin/
 	ln -sf $(PWD)/bin/tm  ~/local/bin/
 	ln -sf $(PWD)/bin/git-patdiff  ~/local/bin/
-	#
-	install -d ~/.lein
-	ln -sf $(PWD)/lein/leinrc ~/.lein/
-	ln -sf $(PWD)/lein/profiles.clj ~/.lein/
 
 vimrc_repo?= git@github.com:proger/vimrc.git
 deploy-vim:
