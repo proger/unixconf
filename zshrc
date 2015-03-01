@@ -256,6 +256,13 @@ nix-prefetch-git-here() {
 		| awk '/^git revision is/ { print "    rev = \""$4"\";"; } /^hash is/ {print "    sha256 = \""$3"\";"; }'
 }
 
+ec2cons() {
+	while true; do
+		aws --region ap-southeast-1 ec2 get-console-output --instance-id "$1" \
+			| jq -r .Output
+		sleep 30 # ec2 updates it no sooner than 30 seconds
+	done
+}
 
 # suffix aliases
 alias -s {jpg,jpeg,png,gif,tiff,bmp}='feh'
