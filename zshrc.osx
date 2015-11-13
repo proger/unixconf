@@ -23,7 +23,7 @@ preap_all() {
 	ps -e -o pid,ppid,xstat,comm \
 		| awk '$3 != 0 && $4 ~ /^\(/ {
 			printf "(printf \"call (int)waitpid(%d, 0, 1)\\nquit\\n\"; cat /dev/zero) | gdb -q $(ps -o comm= -p %d) %d\n",
-					$1, $2, $2; 
+					$1, $2, $2;
 		       }' \
 		| sh
 }
@@ -56,14 +56,8 @@ _alias	perlenv		source $HOME/perl5/perlbrew/etc/bashrc
 
 _alias	hls		env NOTRAP=1 ~/ss/streaming/utils/hls-dump.sh
 
-#e() {
-#	pgrep Emacs >/dev/null 2>&1 && emacsclient -nc $* || open -na /Applications/Emacs.app $*
-#}
-#
-#e!() {
-#	open -na /Applications/Emacs.app $*
-#}
+_alias  vim             emacsclient -t
 
-#alias emacs="/usr/local/bin/emacsclient -ct"
-#alias e="/usr/local/bin/emacsclient -ct"
-#alias es="/usr/local/bin/emacs --daemon"
+r16() {
+	export PATH=/usr/local/Cellar/erlang-r16/R16B03-1_2/bin:$PATH
+}

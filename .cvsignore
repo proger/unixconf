@@ -32,3 +32,10 @@ autom4te.cache/
 *.dyn_o
 *.dyn_hi
 *.hi
+.rebar/
+.idea/
+*.iml
+.stack-work/
+node_modules/
+.vagrant
+.#*

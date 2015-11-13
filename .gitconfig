@@ -27,13 +27,15 @@
 	branch = auto
 
 [core]
-	excludesfile = /tank/proger/.cvsignore
+	excludesfile = /Users/vladki/.cvsignore
 
 [diff]
 	renames = true
-	external = git-patdiff
+#	external = git-patdiff
 
 [push]
 	default = tracking
 [credential]
 	helper = osxkeychain
+[branch]
+	autosetuprebase = always

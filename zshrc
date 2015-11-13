@@ -58,9 +58,6 @@ _alias	ljdb		java -cp /usr/lib/jline/jline.jar:/usr/lib/jvm/java-6-openjdk/lib/t
 
 _alias	ifconfig	sudo ifconfig
 
-_alias	shosts		vim ~/.ssh/known_hosts
-_alias	hosts		sudo vim /etc/hosts
-
 #_alias	gentags		exctags -R --c-kinds=+p --fields=+iaS --extra=+q
 _alias	gentags		ctags -R --format=2
 
@@ -80,7 +77,6 @@ _alias	randip		jot -r -s "." 4 1 255
 _alias	pics		'feh (*/)#^*-s.*(.)'
 
 _alias	pg		'ps axuww | g'
-#_alias  vim             emacs
 
 _alias	ck		sha512sum
 
@@ -397,8 +393,8 @@ compctl -/g "*.[cCoa]" -x 's[-I]' -/ - \
 # colors!
 #export	ZLS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.png=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mpg=01;35:*.avi=01;35:*.mkv=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:'
 #export	LS_COLORS=$ZLS_COLORS
-zstyle	':completion:*' list-colors ${(s.:.)ZLS_COLORS}
-zstyle	':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=01;36=31"
+#zstyle	':completion:*' list-colors ${(s.:.)ZLS_COLORS}
+#zstyle	':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=01;36=31"
 
 # prompt
 # colors {{{
@@ -433,7 +429,7 @@ ps1_vcs() {
 
 parent=$(basename ${$(ps -o comm= -p $PPID)#-})
 case $parent in
-	xterm|urxvt|tmux|sshd|sshd:*|sudo|login|gnome*) parent="";;
+	xterm|urxvt|tmux|sshd|sshd:*|sudo|login|gnome*|Emacs) parent="";;
 	*) parent="${CYAN}${parent}${NOCOLOR} ";;
 esac
 

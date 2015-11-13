@@ -17,12 +17,14 @@ if [[ -o login ]]; then
 	#export PATH=$PATH:/usr/pkg/bin:/usr/pkg/sbin
 	export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
-	export NIX_PATH=$HOME/dev/nix:ssh-config-file=$HOME/.ssh/config
+	#export NIX_PATH=$HOME/src/nix:ssh-config-file=$HOME/.ssh/config
+	export NIX_PATH=ssh-config-file=$HOME/.ssh/config
 	export PATH=$HOME/.nix-profile/bin:$PATH
-	export PATH=$HOME/local/bin:$PATH
+	export PATH=$HOME/local/bin:$HOME/.opam/system/bin:$PATH
+	export PATH=/usr/local/gcc-4.8.1-for-linux64/bin:$HOME/local/gcc-arm-none-eabi-4_9-2015q1/bin:$PATH
 fi
 
-export EDITOR=vim
+export EDITOR="emacsclient -t"
 
 case $TERM in
 	*) export LC_CTYPE=en_US.UTF-8;;
