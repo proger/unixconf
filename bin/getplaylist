@@ -1,6 +1,0 @@
-#!/bin/sh
-
-playlist="$1"
-for f in $(curl "$playlist"); do
-	wget --trust-server-names $f
-done

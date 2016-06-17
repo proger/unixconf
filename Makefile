@@ -5,7 +5,6 @@ FILES= \
 	.cvsignore \
 	.gitconfig \
 	.latexmkrc \
-	.profile \
 	.tmux.conf
 
 all: deploy deploy-vim

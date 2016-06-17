@@ -39,3 +39,7 @@ autom4te.cache/
 node_modules/
 .vagrant
 .#*
+*~
+_build
+.ipynb_checkpoints/
+*.asv # matlab autosave

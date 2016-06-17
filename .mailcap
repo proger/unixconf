@@ -1,9 +1,0 @@
-text/html; lynx -dump -force_html -display_charset=utf8 %s; needsterminal; copiousoutput;
-image/bmp; feh %s
-image/png; feh %s
-image/gif; feh %s
-image/jpeg; feh %s
-image/jpg; feh %s
-image/pjpeg; feh %s
-image/tiff; feh %s
-application/pdf; mupdf %s
