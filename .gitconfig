@@ -1,6 +1,6 @@
 [user]
-	email = proger@wilab.org.ua
-	name = Vladimir Kirillov
+	email = vlad@kirillov.im
+	name = Vlad Ki
 
 [alias]
 	#st = status -sb
@@ -39,3 +39,7 @@
 	helper = osxkeychain
 [branch]
 	autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
